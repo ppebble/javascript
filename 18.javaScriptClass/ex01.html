@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        var user = {
+            name : "leesm",
+            age : 15,
+            showInfo:function(){
+                document.write("user :" + this.name + ", "+this.age)//참조변수와 동일한 주소 값을 가지고 있다.(자기 자신의 주소.)
+                //this가 활성화 되는 시점 ? 인스턴스가 생성되는 시점 . . 지역변수로 사용됨
+            }//리터럴 방식으로 클래스 생성 :: 하나의 인스턴스 밖에 생성할 수 없다.
+        }
+        user.showInfo();//외부에서 클래스의 메소드를 호출하고 프로퍼티를 사용하려면 user를 이용해야한다.
+        $(document).ready(function(){
+            
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

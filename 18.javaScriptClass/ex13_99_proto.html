@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 출력하기 프로토타입 </title>
+    <style>
+        #output{
+            border: 1px solid red;
+            width: 400px;
+            height: 400px;
+            font-size: 15px;
+            margin-top: 20px;
+        }
+        button:hover{
+            background-color: #0ff0f1;
+        }
+    </style>
+
+
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //Class Construct
+        function My99(){
+            //output
+            this.$output = $("#output");
+
+            this.print99dan();
+            this.clear();
+        }
+        //method with prototype
+        My99.prototype.print99dan = function(dan){
+            var str= "";
+            for(var i=1; i<=9; i++){
+                str += dan + " * " + i + " = " + (dan * i) + "<br/>";
+            }
+            this.$output.html(str);
+        }
+        My99.prototype.clear = function(){
+            $("#del").click(function(){
+                $("#output").html("");
+            })
+        }
+
+
+        $(document).ready(function(){
+            var my99dan = new My99();
+
+            var dan = prompt(" enter num :: ");
+            my99dan.print99dan(dan);
+        })
+    </script>
+</head>
+<body>  
+    <div>
+        
+        <button id="del">지우기</button>
+    </div>
+    <div id="output">
+        Print  ::
+    </div>
+</body>
+</html>
