@@ -1,0 +1,48 @@
+객체 지향 :: 
+
+        추상화 / 설계하는 작업 자체를 의미 .. Abstract , InterfaceImpl . . .
+
+        캡슐화 / 추상화 작업 내용 중 어떤 Property와 Method는 외부에서 접근을 제어하는 작업 // Encapsulation .. private, protected, public . . . 
+
+                    - SingleTone , getter, setter
+
+        상속 / 특정 클래스의 속성과 메소드를 하위 클래스가 물려받는 것 (부모 - 자식 노드)
+
+        다형성 / 선언 부분과 구현 부분을 나눠서 다양하게 처리하는 것./ Inheritance , Interface, Abstract, combine ...
+                          - OOT의 핵심
+
+JavaScript ? OOT는 아님
+
+
+OOT 기본기능 ; class, interface, abstract class   -> interface(선언부) / interfaceImpl(구현부)
+              쪼개는 이유 ? 다형성 - 특정 작업을 소스 수정을 거의 하지 않고 다양한 방법으로 연결해서 만들 수 있기 때문.
+ 
+              java vs javascript ? 문법은 조금 차이가 있지만 개념은 똑같다. (prototype  ...)
+ 
+ 
+Class ::
+                : javascript 지원 ? javascript는 literal, function, prototype 으로 생성한다. (java :: class생성자)
+
+
+Interface :: 선언부분 / 구현부분이 없다. :: 구현해야 할 메소드 명세서를 클래스와 연결하여 사용한다.
+             - 연결된 클래스는 인터페이스에 명시된 내용을 무조건 구현하여 Override 해줘야함.
+ 
+                : javascript 지원 ? 안함  // 있다고 가정하고 코딩해야됨
+ 
+ Abstract Class :: 상속의 개념 이해 필요.
+            상속 ? 부모클래스의 기능을 가진 자손클래스가 물려받아 사용할 수 있다, 부모클래스의 속성과 메소드 뿐만 아니라 자식만의 기능을 추가해서 사용함
+            
+            추상클래스 ? 부모클래스의 특정 기능을 부모클래스에서 구현하는게 아니라 자식클래스에게 구현하도록 강요해야하는 경우에 사용하는 문법
+            
+            용도 ? 자식클래스에게 구현을 강요해야하는 기능을 추상메소드로 만들어준다.
+                    - 상속받은 자식클래스는 추상클래스에 선언되어있는 추상 메소드의 구현 코드를 작성해줘야 한다.
+                    (만약 부모클래스의 추상메소드를 전부 구현하지 않으면 자식 클래스도 abstract를 달고 추상클래스가 된다)
+                    
+                    상속받은 추상클래스를 모두 구현해야 인스턴스 생성 가능(아니면 abstract 달아야됨)
+                    
+             : javaScript 지원 ? 안함 // 있다고 가정하고 코딩해야됨 . . .
+             
+                
+            
+ 
+ 
