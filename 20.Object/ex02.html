@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체지향 프로그래밍</title>
+    <style>
+        .tab-menu {
+            list-style: none;
+            height: 80px;
+        }
+        .tab-menu li {
+            width: 100px;
+            height: 40px;
+            background-position-y: 0;
+            text-indent: -1000px;
+            overflow: hidden;
+            display: inline;
+            float: left;
+        }
+        .tab-menu li:hover {
+            background-position-y: -40px;
+        }
+        .tab-menu li.select {
+            background-position-y: -80px;
+            height: 80px;
+        }
+        .tab-menu li.menuitem1 {
+            background-image: url(resources/newbtn.bar.1.png);
+        }
+        .tab-menu li.menuitem2 {
+            background-image: url(resources/newbtn.bar.2.png);
+        }
+        .tab-menu li.menuitem3 {
+            background-image: url(resources/newbtn.bar.3.png);
+        }
+        .tab-menu li.menuitem4 {
+            background-image: url(resources/newbtn.bar.4.png);
+        }
+        .tab-menu li.menuitem5 {
+            background-image: url(resources/newbtn.bar.5.png);
+        }
+        .tab-menu li.menuitem6 {
+            background-image: url(resources/newbtn.bar.6.png);
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //OOP
+        $(document).ready(function(){
+			//탭메뉴 생성
+			var tabMenu1 = new TabMenu("#tabMenu1");
+			var tabMenu2 = new TabMenu("#tabMenu2");
+			
+			//이벤트 리스너 등록
+			$("#btnReset").click(function(){
+				tabMenu1.resetTabMenu();
+				tabMenu2.resetTabMenu();
+			});
+		});
+
+		//탭메뉴 클래스 정의(설계)
+		function TabMenu(selector) {
+			this.init(selector);
+			this.initEvent();
+		}
+
+		//요소 초기화
+		TabMenu.prototype.init=function(selector) {
+			//인스턴스가 생성이 되면 탭메뉴가 생성이 되고 li객체를 찾아와라.
+			this.tabMenu = $(selector);
+			this.$menuItems = this.tabMenu.find("li");
+		}
+
+		//이벤트 초기화
+		TabMenu.prototype.initEvent=function(){
+			var localThis = this;
+			this.$menuItems.on("click", function(){
+				//선택된 아이템의 인덱스를 가지고 메서드를 호출하고 있다.
+				localThis.setSelectMenuItemAt($(this).index());
+			});
+		}
+
+		//n번째 탭메뉴 선택
+		TabMenu.prototype.setSelectMenuItemAt=function(index){
+			this.$menuItems.removeClass("select");
+			this.$menuItems.eq(index).addClass("select");
+		}
+
+		//탭메뉴 선택 초기화
+		TabMenu.prototype.resetTabMenu=function() {
+			this.$menuItems.removeClass("select");
+		}
+    </script>
+</head>
+<body> 
+    <button id="btnReset">Reset</button>
+    <p>첫 번째 탭메뉴</p>  
+    <ul class="tab-menu" id="tabMenu1">
+        <li class="menuitem1">google</li>
+        <li class="menuitem2">facebook</li>
+        <li class="menuitem3">pinterest</li>
+        <li class="menuitem4">twitter</li>
+        <li class="menuitem5">aribnb</li>
+        <li class="menuitem6">path</li>
+    </ul>
+    <p>2 번째 탭메뉴</p>  
+    <ul class="tab-menu" id="tabMenu2">
+        <li class="menuitem1">google</li>
+        <li class="menuitem2">facebook</li>
+        <li class="menuitem3">pinterest</li>
+        <li class="menuitem4">twitter</li>
+        <li class="menuitem5">aribnb</li>
+        <li class="menuitem6">path</li>
+    </ul>
+    
+</body>
+</html>
