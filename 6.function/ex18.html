@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closer</title>
+    
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        // function add(){
+        //     var cnt = 0;
+        //     return cnt;
+
+        // }
+        // document.write("1. Cnt :: " + add() + "<br>");
+        // document.write("2. Cnt :: " + add() + "<br>");
+        // document.write("3. Cnt :: " + add() + "<br>");
+        // document.write("4. Cnt :: " + add() + "<br>");
+        // document.write("5. Cnt :: " + add() + "<br>");
+
+        //Using CLoser
+        function createCounter(){
+            var cnt=0; //지역변수 선언
+            function add(){//CloserFunction
+                cnt++;
+                return cnt;//외부함수의 지역변수를 이용하고있다. 메모리에서 제거되지 않고 지속적으로 이용된다.
+            }
+            return add;
+        }
+        var counter = createCounter();
+        document.write("1. cnt : " + counter() +"<br>");
+        document.write("2. cnt : " + counter() +"<br>");
+        document.write("3. cnt : " + counter() +"<br>");
+        document.write("4. cnt : " + counter() +"<br>");
+        document.write("5. cnt : " + counter() +"<br>");
+    </script>
+</head>
+<body>
+    <ul class="tab-menu" id ="tabmenu1">
+        <li class="menuitem1"></li>
+        <li class="menuitem2"></li>
+        <li class="menuitem3"></li>
+        <li class="menuitem4"></li>
+        <li class="menuitem5"></li>
+        <li class="menuitem6"></li>
+    </ul>
+    <div>Selected Index :: <span id="info"></span></div>
+    
+</body>
+</html>

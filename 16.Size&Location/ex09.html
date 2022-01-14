@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크기다루기 변경</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }        
+        body {
+            font-size: 15px;
+        }
+        
+        #parent {
+            position: absolute;
+            border: 1px solid black;            
+            width: 500px;
+            height: 400px;
+            left: 50px;
+            top: 100px;            
+        }       
+        #child{
+            position: absolute;
+            padding: 20px;
+            background-color: #0ff;
+            border: 1px solid black;            
+            width: 100px;
+            height: 100px;
+            left: 100px;
+            top: 100px;          
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           var $child = $("#child");
+           //child의 기본크기만 변경 기본크기 = 200
+           $("#btn1").click(function(e){
+               $child.width(200);
+           })
+           //기본크기 +padding = 200이 되어야 하므로 width()보다 덜 커진다.
+           $("#btn2").click(function(e){
+               $child.innerWidth(200);
+           })
+           // + border 1px * 2
+           $("#btn3").click(function(e){
+               $child.outerWidth(200);
+           })
+        })
+    </script>
+</head>
+<body>
+    <div class="nav">       
+        <button id="btn1">
+            width()
+        </button>
+        <br/>
+        <button id="btn2">
+            innerwidth()
+        </button>
+        <button id="btn3">
+            outerWidth()
+        </button>
+        <br>
+    </div>  
+    <div id="parent">
+        <div id="child"></div>
+    </div>  
+</body>
+</html>

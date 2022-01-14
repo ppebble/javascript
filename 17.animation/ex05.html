@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>options</title>
+    <style>
+        *{
+            font-size: 25px;
+        }
+        #target{
+            border: 1px solid black;
+            width: 600px;
+            height: 500px;
+            text-align: center;
+        }
+        #info{
+            border: 1px solid black;
+            width: 600px;
+            height: 150px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #kor{
+            width: 600px;
+            height: 500px;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script src="libs/jquery.easing.min.js"></script><!-- easing lib-->
+    <script>
+        $(document).ready(function(){
+            var $img1 = $("#target"); //움직일 대상 찾아오기
+            var $info = $("#info");
+            
+            
+            $("#hide").on("click", function(){
+                $img1.hide({
+                    duration : 6000,
+                    easing : "linear",
+                    //promise객체는 비동기처리가 성공 혹은 실패를 하였을 때 상태정보와처리 종료 후 
+                    //실행될 콜백함수를 담고있는 객체이다.function(promise animantion, NumberProgress, NumberRemainings)
+                    progress : function(animation, progress, remainingMs){
+                        //진행률 %단위
+                        var persent = parseInt(progress * 100);//퍼센트로 나타내기 위해서 . . progress :: 0~1
+                        var reMs=(remainingMs/1000).toFixed(1);
+                        //투명도
+                        var opar = parseFloat($img1.css("opacity")*100).toFixed(1);
+                        var str = "Progress : " + persent + "%"+ "</br> 남은시간" + reMs +"</br> 투명도" + opar;
+                        $info.html(str);
+                        
+
+
+                    }
+                })
+            })
+            //slideup/down은 Height만 변한다. 투명도는 변하지 않는다.
+        })
+    </script>
+</head>
+<body>
+    <div id="info">
+
+    </div>
+    <div id="target">
+        <img src="resources/korea.png" id="kor">
+    </div>
+    <div>
+        <button id="hide">slideUp</button> 
+    </div>
+</body>
+</html>

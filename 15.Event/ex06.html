@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bubbling stop</title>
+    <style>
+        body {
+            font-size: 30px;
+        } 
+        #btn1, #btn2 {
+            font-size: 30px;
+        }      
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //panel click event listener regist
+            $("#panel").click(function(e){
+                console.log("panel click event occured :: ");
+            })
+
+            $("#btn1").click(function(e){
+                console.log("bublinng btn 1 process");
+            })
+            
+            $("#btn2").click(function(e){
+                console.log("bubbling stop . . .");
+                e.stopPropagation();
+            })
+           
+        });
+    </script>
+</head>
+
+<body>
+    <div id="panel">
+        <button id="btn1">btn1</button>
+        <button id="btn2">btn2</button>
+    </div>
+</body>
+</html>

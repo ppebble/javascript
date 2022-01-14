@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Trigger</title>
+    <style>
+        body {
+            font-size: 30px;
+        }
+        #btn1, #btn2{
+            font-size: 20px;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //버튼 A를 눌러도 B 이벤트가 실행됨
+        $(document).ready(function(){
+            $("#btn1").on("click", function(e){
+                //강제로 btn2의 이벤트가 발생되도록한다
+                $("#btn2").trigger("click");
+            })
+            $("#btn2").click(function(e){
+                alert("Btn B Pushed");
+            })
+        });
+    </script>
+</head>
+<body>
+    <button id="btn1">A</button>
+    <button id="btn2">B</button>
+</body>
+</html>

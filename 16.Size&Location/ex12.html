@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서크기</title>
+    <style>
+                
+        body {
+            font-size: 15px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #main{
+            border: 1px dotted red;
+            width: 500px;
+            margin: 50px;
+        }
+        #info{
+            border: 10px solid red;
+            position: fixed;
+            left: 120px;
+            top: 100px;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function(){
+        $(window).on("resize", function(){
+            showInfo();
+            })
+            showInfo();
+
+            function showInfo(){
+                var str="";
+                str += '$("document").width() : '+ $(document).width() + "<br/>";
+                str += '$("document").height() : '+ $(document).height() + "<br/>";
+                $("#info").html(str);
+                //document의 height는 문서의 내용과 관련이있다. width는 창 크기 좌우
+            }
+        });    
+        
+    </script>
+</head>
+<body>
+    <div id="main">
+        <p>Hi1</p><p>Hi1</p><p>Hi1</p><p>Hi2</p><p>Hi1</p><p>Hi1</p><p>Hi1</p>
+        <p>Hi1</p><p>Hi1</p><p>Hi1</p><p>Hi1</p><p>Hi1</p><p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+    </div>
+    <div id="info">
+        문서의 크기 출력
+    </div>
+</body>
+</html>

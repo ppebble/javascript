@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+        ul, li{
+            border: 3px solid #77d;
+            margin: 10px;
+        }
+        ul{
+            padding: 10px;
+        }
+        li.select{
+            background-color: #0ad;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var cnt = 5;
+            $("#btnAdd").click(function(){
+                cnt++;
+
+                // $("#menu").append("<li>menu" + cnt + "</li>");
+                // var $li = $("<li>menu" + cnt + "</li>");//신규 노드 생성 뒤에
+                
+                //prepend :: 앞에다가 신규 노드 생성
+                var $li = $("<li>menu" + cnt + "</li>");
+                // $("#menu").prepend($li);
+
+                // $li.prependTo("#menu");
+
+                //$li.insertBefore("#menu li:first");
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <button id="btnAdd">ADD</button>
+    <ul id="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li class="select">menu4</li>
+        <li>menu5</li>
+    </ul>
+</body>
+</html>

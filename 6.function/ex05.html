@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //중첩함수
+        function hi(){
+            function hello(user){
+                document.write(user + ", Welcome"); 
+            }
+            return hello;//리턴값으로 중첩함수를 넘기고 있다.
+        }
+        var func = hi(); //hi라는 함수를 호출하고 그 리턴 값으로 hello함수를 받고 있다.
+        func("lee") // hello(lee)와 동일한 기능
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

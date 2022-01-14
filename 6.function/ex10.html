@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="libs/jquery-3.6.0.min.js">
+    </script>
+    <script>
+       var a = 100;
+       var b = 200;
+       var c = 300;
+
+       function outter(){
+
+        var b = 2000;
+        var c = 3000;
+        function inner(){//중첩함수는 외부함수의 변수에 쉽게 접근할 수 있는 장점이 있다.
+            var c = 30000;
+            document.write("1. a = " + a + "<br>");
+            document.write("2. b = " + b + "<br>");
+            document.write("3. c = " + c + "<br>");
+        }
+        inner();//중첩함수 호출
+       }
+       outter();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseOver, MouseOut ex</title>
+    <style>
+        
+        #parent{
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            left: 200px;
+            top:100px;
+            background-color: #0ff;
+        }
+        #child{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            color: #0ff;
+            background-color: #404;
+
+        }
+        
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        var cnt = 0;
+        var $info = null;
+        var $child = null;
+        $(document).ready(function(){
+           $info = $("#info");
+           $child = $("#child");
+           //mouseover, mouseout이벤트는 보모노두와 자식노드는 별개이면서 자식노드는 독립적인 노드로 판단해서 이벤트가 
+           //발생한다.
+
+        //    $("#parent").mouseover(function(e){
+        //     cnt ++;
+        //     $info.html($info.html() + "<br/>" + cnt + "," + e.target.id + ".over");
+        //    })
+           $("#parent").mouseout(function(e){
+            cnt ++;
+            $info.html($info.html() + "<br/>" + cnt + "," + e.target.id + ".over");
+           })
+           
+        });
+    </script>
+</head>
+<body>
+    <div id="info">
+        Event Info Output
+    </div>
+    <div id="parent">
+        parent
+        <div id="child"> child </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="libs/jquery-3.6.0.min.js">
+    </script>
+    <script>
+        function calculator(op, num1, num2){
+            var result = "";
+            switch(op){
+                case "+" : 
+                    result=add(num1,num2);
+                    break;
+                case "-":
+                    result=sub(num1,num2);
+                    break;
+                case "*":
+                    result=mul(num1,num2);
+                    break;
+                case "/":
+                    result=div(num1,num2);
+                    break;
+                default:
+                    result = " error ! Unexpected OP"
+                }
+                function add(num1, num2){
+                    return num1 + num2;
+                }
+                function sub(num1, num2){
+                    return num1 - num2;
+                }
+                function mul(num1, num2){
+                    return num1 * num2;
+                }
+                function div(num1, num2){
+                    return num1 / num2;
+                }
+                return result;
+            }
+            document.write("Result : " + calculator("+", 100, 200 ) + "<br>")
+            document.write("Result : " + calculator("-", 100, 200 ) + "<br>")
+            document.write("Result : " + calculator("*", 100, 200 ) + "<br>")
+            document.write("Result : " + calculator("/", 100, 200 ) + "<br>")
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

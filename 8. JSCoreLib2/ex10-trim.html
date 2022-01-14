@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>정규표현식을 사용한 공백제거</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        var str="     H     i    St     ri    ng    ";
+        console.log("원본 문자열  : " + str);
+        //전체 공백 제거는 자바스크립트의 정규표현식을 이용해야한다.
+        console.log("공백 제거 문자열 : " + str.replace(/(\s*)/g, "" ));
+        console.log("앞 공백 제거 :" +str.replace(/^(\s*)/,""));
+        console.log("뒷 공백 제거 : " +str.replace(/\s*$/,"") );
+
+        //정규표현식의 종류
+        /*
+            ^ : 입력의 시작을 찾음
+            $ : 입력의 끝을 찾음
+            * : 앞에 오는 문자를 0번 이상 찾는다.(ex, "zo*"를 입력하면 z나 zoo를 찾는다.)
+            + : 앞에 오는 문자를 1번 이상 찾는다 . (zo+ = z는 찾지않고 zoo를 찾는다.)
+            ? : 앞에 오는 문자를 -번 이상 찾는다. ( as?ve?를 입력하면 naver에 있는 ve를 찾는다)
+            \s : 공백 문자를 찾는다
+            \S : 공백 문자가 아닌 것을 찾는다.
+            g : 전역 검색을 칭한다.
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "굴림";
+        }
+        div, p, ul, li{
+            border : 1px solid gray;
+        }
+        ul{
+            padding-top: 10px;
+            padding: 15px;
+            margin : 15px;
+        }
+        li.select{
+            margin: 10;
+            background-color: #ccc;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var $aList = $("ul li a");
+            $("ul li a").click(function(){
+                alert($aList.index(this));
+                //연속해서 태그가 있지 않는 경우, jQuery.index() 메소드를 호출하게 되면 인덱스 값이 항상0이 나온다.
+
+                //이런 경우의 인덱스를 알기 위해선 $Object.index($object) ... list로 묶고 index(this)
+            })
+           
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li>
+            <a href="#">menu</a>
+        </li>
+        <li>
+            <a href="#">menu2</a>
+        </li>
+        <li>
+            <a href="#">menu3</a>
+        </li>
+        <li>
+            <a href="#">menu4</a>
+        </li>
+        <li>
+            <a href="#">menu5</a>
+        </li>
+    </ul>
+    
+    
+</body>
+</html>

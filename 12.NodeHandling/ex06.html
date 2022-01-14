@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+        ul, li{
+            border: 3px solid #77d;
+            margin: 10px;
+        }
+        ul{
+            padding: 10px;
+        }
+        li.select{
+            background-color: #0ad;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           $("#ok").click(function(){
+               console.log($("#menu").html());
+               //html()은 특정 노드들의 마크업 언어까지 알 수 있다.
+               //return type :: String
+
+               console.log($("#menu").text());
+               //text()는 단순히 텍스트 노드의 내용만 출력한다.
+
+               //마크업언어를 수정해야할 경우 html을 이용하고 텍스트만 수정해야 하면 text()를 사용해야한다.
+           })
+           
+        })
+    </script>
+</head>
+<body>
+    <button id="ok">OK !</button>
+    <ul id="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li class="select">menu4</li>
+        <li>menu5</li>
+    </ul>
+</body>
+</html>

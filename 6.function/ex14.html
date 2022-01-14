@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script >
+        $(document).ready(function(){
+            checkCount();//함수 호출
+        })
+        function checkCount(){
+            var count=0;
+            $("#btnStart").click(function(){
+                count ++;
+                if(count>=5){
+                    alert(" 5 click completed . . .")
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <button id="btnStart"> START </button>
+</body>
+</html>

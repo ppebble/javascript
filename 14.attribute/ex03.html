@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 25px;
+        }
+        .content{
+            text-align: center;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var $image = $("#image");
+            var flag = true;
+            
+            $image.click(function(){
+                flag = !flag;//반대 값 저장
+                if(flag){
+                    $image.attr("src", "resources/cat.png");
+                }
+                else{
+                    $image.attr("src", "resources/dog.png");
+                }
+                //switch 형태 . . . 
+            })
+        })
+    </script>
+</head>
+<body>
+   
+    <img src="resources/cat.png" id="image">
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var inputString = null;
+
+        alert(" User Message Received");
+        alert(" 'q' to quit program ");
+
+        do{
+            inputString = prompt("Enter Message . . ");
+            document.write(inputString + "<br/>");
+        }while(!(inputString == "q")); //q 입력시 루프 탈출
+
+        document.write("Program Quit . . . ");
+    </script>
+    
+</body>
+</html>

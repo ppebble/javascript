@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //hiding Text 버튼을 눌렀을 때
+            $("#showText").click(function(){
+                $("div").hide();
+            })
+            //show Text 버튼을 눌렀을 때
+            $("#hideText").click(function(){
+                $("div").show();
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>Hello, jQuery-3</div>
+    <button id="showText">Hiding Text</button>
+    <button id="hideText">Showing Text</button>
+    
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/text.css">
+    <script src="lib/jquery-3.6.0.min.js"></script>
+    <script>
+        function hello(){
+            //좌표값과 배경이미지 크기를 난수로 대입
+            var rnd1 = Math.floor(Math.random() * 20);
+            var rnd2 = Math.floor(Math.random() * 40);
+            var rnd3 = Math.floor(Math.random() * 3) + 100;
+
+            $(".hello").css({
+                "bottom" : rnd1, "left" : rnd2
+
+            })
+            //backgorund 확대
+            $(".hello .text").css({"background-size" : rnd3 + "%"});
+        }
+        //0.01초 마다 hello()함수를 호출한다.
+        setInterval(hello, 10);
+    </script>
+    <title>img, Text Shaking</title>
+</head>
+<body>
+    <div class="hello">
+        <div class="text">Hi!</div>
+    </div>
+    
+</body>
+</html>

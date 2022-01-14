@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var names = ["가", "다", "나", "라", "바", "마", "사"]
+        document.write("실행 전 :: " + names.join(" ,") +"<br>");
+        
+        names.sort();
+        document.write("sort// default는 오름차순 :: " + names.join(" ,") +"<br>");
+
+        names.sort(function(a, b){
+            if(a>b) return -1;
+            if(a<b) return 1;
+    
+        })
+        document.write("내림차순 :: " + names.join(" ,") +"<br>");
+
+        var numbers = [6, 7, 8,1, 2, 9 ,6, 78,4 ,77];
+        document.write("실행 전 :: " + numbers.join(" ,") +"<br>");
+
+        numbers.sort(function(a, b){
+            if(a>b) return -1;
+            if(a<b) return 1;
+        });
+        document.write("DESC sort :: " + numbers.join(" ,") +"<br>");
+        numbers.sort(function(a, b){
+            if(a>b) return 1;
+            if(a<b) return -1;
+        });
+        document.write("ASC sort :: " + numbers.join(" ,") +"<br>");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

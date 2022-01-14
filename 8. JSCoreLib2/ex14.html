@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var menus = ["menu1", "menu2", "menu3", "menu4"];
+
+        document.write("실행 전 :: " + menus.join()+"<br>");
+
+        menus.push("menu5");
+        document.write("push 실행 후 :: " + menus.join()+"<br>");
+
+        menus.unshift("menu0");
+        document.write("unshift 실행 후 :: " + menus.join()+"<br>");
+        
+        menus.splice(3, 0,"menu2.5");
+        document.write("splice(add) 실행 후 :: " + menus.join()+"<br>");
+
+        document.write("========================DELETE=================================<br>");
+
+        menus.shift();
+        document.write("shift :: " + menus.join()+"<br>");
+        menus.pop();
+        document.write("pop :: " + menus.join()+"<br>");
+        menus.splice(2, 1);//splice(n, m, val) :: n번째 요소 m개만큼 삭제, m을 0으로 하면 val의 내용 삽입, val을 넣으면 수정
+        document.write("splice :: " + menus.join()+"<br>");
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

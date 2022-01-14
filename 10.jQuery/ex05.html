@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "굴림";
+        }
+        #panel{
+            width: 600px;
+            height: 300px;
+            border: 2px solid black;
+            position: relative;
+
+        }
+        #gigu{
+            position: absolute;
+            left: 50px;
+            top: 140px;
+            width: 50px;
+
+        }
+        #bar{
+            position: absolute;
+            left:50px;
+            top: 190px;
+            width: 500px;
+            height: 15px;
+            background-color: #f30;
+        }
+        #nav{
+            text-align: center;
+            width: 600px;
+
+        }
+       
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <!-- 버튼을 클릭하면 텍스트를 출력하는 메소드 -->
+    <script>
+        // window.onload = function(){
+        //    var gigu = document.getElementById("gigu");
+        //    var btnStart = document.getElementById("btnStart");
+
+        //    var left = 50;
+        //    var timerID = 0;
+
+        //    //btn event 
+        //    btnStart.addEventListener("click", function(){
+               
+        //        //earth moving
+        //        timerID = setInterval(function(){
+        //            left++;
+        //            gigu.style.left=left+"px";
+
+        //            if(left>=460){
+        //            clearInterval(timerID)
+        //            timerID =0;
+        //        }
+        //        }, 10)
+        //        //400px에 도달하면 타이머 종료
+              
+               
+        //    })
+        // }
+        $(document).ready(function(){//크로스브라우징 제공
+           var $gigu = $("#gigu");
+           $("#btnStart").on("click", function(){
+               $gigu.animate({
+                   left : 480
+               }, 5000);
+           })
+        })
+    </script>
+</head>
+<body>
+    <div id="panel">
+        <div id="bar"></div>
+        <img src="resources/earth.png"id="gigu">
+    </div>
+    <div id="nav">
+        <button id="btnStart">Btn</button>
+    </div>
+
+    
+</body>
+</html>

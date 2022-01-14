@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 25px;
+        }
+        .content{
+            text-align: center;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var $content=$(".content");
+
+            console.log("data() = " + $content.data());
+            console.log("attr(data-name) = " + $content.attr("temp-data"));//활용 범위는 attr("")이 더 넓다
+        })
+    </script>
+</head>
+<body>
+    <div class="content" data-name ="spark" data-tel = "010-9417-4320" data-img="resources/codingBrother.png" temp-data="test">
+        <p class="name">jQuery</p>
+        <p class="tel">010-9417-4320</p>
+        <img src="resources/codingBrother.png">
+        <br/>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easing function</title>
+    <style>
+        *{
+            font-size: 25px;
+        }
+        #target{
+            border: 1px solid black;
+            width: 600px;
+            height: 500px;
+            text-align: center;
+        }
+        #kor{
+            width: 600px;
+            height: 500px;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script src="libs/jquery.easing.min.js"></script><!-- easing lib-->
+    <script>
+        $(document).ready(function(){
+            var $img1 = $("#target"); //움직일 대상 찾아오기
+            
+            //나타나는 효과
+            $("#show").on("click", function(){
+                $img1.show(6000, "easeInElastic",function(){
+                    alert("show  completed . . .")
+                })
+            })
+            $("#hide").on("click", function(){
+                $img1.hide(6000, "easeOutElastic",function(){
+                    alert("hide  completed . . .")
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="target">
+        <img src="resources/korea.png" id="kor">
+    </div>
+    <div>
+        <button id="show">show</button>
+        <button id="hide">hide</button>
+    </div>
+</body>
+</html>

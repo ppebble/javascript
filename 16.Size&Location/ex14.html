@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윈도우의 기본크기</title>
+    <style>
+                
+        body {
+            font-size: 15px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #main{
+            border: 1px dotted red;
+            width: 500px;
+            margin: 50px;
+        }
+        #info{
+            border: 10px solid red;
+            position: fixed;
+            left: 120px;
+            top: 100px;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function(){
+                var str="";
+                str += 'window.innerWidth : '+ window.innerWidth + "<br/>";
+                str += 'window.innerHeight : '+ window.innerHeight + "<br/>";
+                $("#info").html(str);
+                //윈도우의 메뉴바 , 툴바를 제외함 내부영역만의 크기
+
+                str += 'window.outerWidth : '+ window.outerWidth + "<br/>";
+                str += 'window.outerHeight : '+ window.outerHeight + "<br/>";
+                $("#info").html(str);
+                //윈도우의 메뉴바 , 툴바를 포함한 외부영역의 크기(스크롤바 포함)
+
+                str += 'window : '+ $(window).width() + "<br/>";
+                str += 'window : '+ $(window).height() + "<br/>";
+                $("#info").html(str);
+                //윈도우의 메뉴바 , 툴바를 포함한 외부영역의 크기(스크롤바는 제외)
+
+                
+
+                str += 'screen.width() : '+ screen.availWidth + "<br/>";
+                str += 'scrren.height : '+ screen.availHeight + "<br/>";
+                $("#info").html(str);
+                //작업표시줄을 제외한 모니터 해상도 . 1920 x 1040
+
+                
+                
+            
+        });    
+        
+    </script>
+</head>
+<body>
+    <div id="main">
+        <p>Hi1</p><p>Hi1</p><p>Hi1</p><p>Hi2</p><p>Hi1</p><p>Hi1</p><p>Hi1</p>
+        <p>Hi1</p><p>Hi1</p><p>Hi1</p><p>Hi1</p><p>Hi1</p><p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+        <p>Hi1</p>
+    </div>
+    <div id="info">
+        문서의 크기 출력
+    </div>
+</body>
+</html>

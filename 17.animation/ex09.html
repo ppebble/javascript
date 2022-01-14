@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Definition Animation-2</title>
+    <style>
+
+        .box{
+            border: 1px solid #0ff;
+            margin: 10px;
+            width: 500px;
+        }
+        .bar{
+            background-color: #98bf21;
+            height: 50px;
+            width: 0px;
+            border: 1px solid #0ff;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script src="libs/jquery.easing.min.js"></script><!-- easing lib-->
+    <script>
+        $(document).ready(function(){
+            var text = null;
+            
+            $("#btnStart").click(function(e){
+                $(".bar").stop().animate({
+                    width : "500px"
+                }, 5000, "linear", function(){
+                text = "Installation Completed . . .";
+                $("#txt").html(text);
+                });
+                
+            })
+
+            $("#btnEnd").click(function(e){
+                $(".bar").stop().animate({
+                width : "1px"
+                }, 1000, "swing", function(){
+                text = "Installation Cancled . . .";
+                $("#txt").html(text);
+                });
+            })
+        })
+            
+    </script>
+</head>
+<body>
+    <h1 id="txt">Program Installing . . .</h1>
+    <div>
+        <button id="btnStart">start</button>
+        <button id="btnEnd">end</button>
+    </div>
+    <div class="box">
+        <div id="bar" class="bar"></div>
+    </div>
+    <p id="text"></p>
+    
+</body>
+</html>

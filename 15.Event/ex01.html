@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        *{
+            margin:50px;
+            border: 2px solid rgb(232, 35, 35);
+            min-height: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        var cnt = 0;//listener 실행 횟수 카운팅 하기 위한 변수
+        $(document).ready(function(){
+            //capture단계의 첫 번째인 document 객체에 이벤트를 주고있다.
+            document.addEventListener("click", function(e){
+                cnt ++;
+                console.log("1.document phase : "  + e.eventPhase + "count : " + cnt);
+            }, true);
+
+            //capture단계에 두 번째인 body에게 이벤트를 등록하기
+            document.body.addEventListener("click", function(e){
+                cnt ++;
+                console.log("2.body phase : "  + e.eventPhase + "count : " + cnt);
+            }, true);
+            //A1단계에 이벤트 등록
+            $("#A1").get(0).addEventListener("click", function(e){
+                cnt ++;
+                console.log("3.A1 phase : "  + e.eventPhase + "count : " + cnt);
+            }, true);
+            //B1단계에 이벤트 등록
+            $("#B1").get(0).addEventListener("click", function(e){
+                cnt ++;
+                console.log("4.B1 phase : "  + e.eventPhase + "count : " + cnt);
+            }, true);
+
+            //bublle 단계
+            $(document).on("click", function(e){
+                cnt++;
+                console.log("8. document phase = " + e.eventPhase + "cnt = " + cnt);
+            })
+            $("body").on("click", function(e){
+                cnt++;
+                console.log("7. body phase = " + e.eventPhase + "cnt = " + cnt);
+            })
+            $("#A1").on("click", function(e){
+                cnt++;
+                console.log("6. A1 phase = " + e.eventPhase + "cnt = " + cnt);
+            })
+            //타겟단계 4번째 인 B1에 이벤트 등록
+            $("#B1").on("click", function(e){
+                cnt++;
+                console.log("5. document phase = " + e.eventPhase + "cnt = " + cnt);
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="A1">
+        A1
+        <div id="B1">
+            B1
+            <div id="C1">
+                C1
+            </div>
+        </div>
+    </div>
+    <div id="A2">
+        A2
+        <div id="B2">
+            B2
+            <div id="C2">
+                C2
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

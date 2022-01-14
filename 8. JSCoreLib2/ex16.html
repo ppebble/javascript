@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>last</title>
+    <style>
+        * {
+            margin : 0;
+            padding: 0;
+        }
+        .arrBanner{
+            width: 400px;
+            height: 200px;
+            position: absolute;
+            border: 3px solid #777;
+        }
+        #arrBanner1{
+            top: 100px;
+            left: 100px;
+        }
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function(){
+           var $arrBanner = $(".arrBanner");
+           var i = 0;
+           var imgList = ["canada.png","england.png","korea.png","usa.png","germany.png","spain.png","italia.png"];
+           setInterval(function(){
+            i++;
+            if(i >= imgList.length){
+                i=0;
+            }
+            var imgName = imgList[i];
+            $arrBanner.attr("src", "resources/" + imgName);
+           }, 1000)
+       })
+    </script>
+</head>
+<body>
+    <img src="resources/korea.png" class="arrBanner" id="arrBanner1">
+    
+</body>
+</html>

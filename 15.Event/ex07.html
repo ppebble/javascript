@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bubbling stop</title>
+    <style>
+        body {
+            font-size: 30px;
+        } 
+        #btn1, #btn2 {
+            font-size: 30px;
+        }  
+        ul{
+            border: 1px solid #aae;
+        } 
+        ul li{
+            margin: 20px;
+            border: 1px solid #aae;
+        }   
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //모든 li 객체에 이벤트 리스너가 전부 등록되어있다. resource 낭비
+        //    $(".menu li").click(function(){
+        //        alert($(this).html());
+        //    })
+        //위와 같은 결과를 출력하지만 ul태그에만 이벤트 리스너가 등록되어있다. 효율적
+
+        //버블링을 이용하여 하나의 이벤트 리스너를 통해 여러 이벤트를 처리하는코드
+           $(".menu").on("click", "li", function(){
+            alert($(this).html());
+           })
+           
+        });
+    </script>
+</head>
+
+<body>
+    <ul class="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+    </ul>
+</body>
+</html>

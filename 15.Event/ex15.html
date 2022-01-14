@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseOver, MouseOut</title>
+    <style>
+        
+        #parent{
+            width: 300px;
+            height: 100px;
+            position: absolute;
+            left: 200px;
+            top:100px;
+            background-color: #0ff;
+            border: 2px solid #404;
+            overflow: hidden;
+        }
+        #child{
+            width: 100px;
+            height: 200px;
+            position: absolute;
+            left: 100px;
+            top: 0px;
+            color: #0ff;
+            background-color: #404;
+
+        }
+        #child div{
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            align-items :center;
+
+        }
+        #child div.over{
+            background-color: #e00;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        var cnt = 0;
+        var $info = null;
+        var $child = null;
+        $(document).ready(function(){
+           $info = $("#info");
+           $child = $("#child");
+           //mouseover, mouseout이벤트는 보모노두와 자식노드는 별개이면서 자식노드는 독립적인 노드로 판단해서 이벤트가 
+           //발생한다.
+
+           $("#parent").mouseover(function(e){
+            cnt ++;
+            $info.html($info.html() + "<br/>" + cnt + "," + e.target.id + ".over");
+            $child.animate({
+                top : -100
+
+            },300);
+           })
+           $("#parent").mouseout(function(e){
+            cnt ++;
+            $info.html($info.html() + "<br/>" + cnt + "," + e.target.id + ".over");
+            $child.animate({
+                top : 0
+            },300);
+           })
+           //가만히 있는데도 parent영역과 child영역이 독립적이기 때문에 Animate가 계속 된다.
+        });
+    </script>
+</head>
+<body>
+    <div id="info">
+        Event Info Output
+    </div>
+    <div id="parent">
+        parent
+        <div id="child"> 
+            <div>out</div>
+         
+            <div class="over"> 
+            over 
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

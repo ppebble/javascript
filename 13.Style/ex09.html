@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <style>
+        #panel{
+            width: 600px;
+            height: 400px;
+            border: 2px solid #404;
+            position: relative;
+        }
+        #fish{
+            position: absolute;
+            left: 250px;
+            top: 150px;
+        }
+       
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        
+        window.onload = function() {
+            var $fish = $("#fish");
+
+            var panelWidth = parseInt($("#panel").css("width"));
+            var panelHeight = parseInt($("#panel").css("height"));
+
+            //물고기가 최대로 움직일 영약
+            panelWidth = panelWidth - parseInt($fish.css("width"));
+            panelHeight = panelHeight - parseInt($fish.css("height"));
+
+            $("#btnStart").click(function(){
+                var left = parseInt(Math.random()*panelWidth);
+                var top = parseInt(Math.random()*panelHeight);
+
+                //물고기 위치 설정하기
+                $fish.css({
+                    left : left,
+                    top : top
+                })
+            })
+        }
+    </script>
+</head>
+<body>
+    <button id="btnStart">Execute</button>
+    <div id="panel">
+        <img src="resources/fish.png" id="fish">
+    </div>
+</body>
+</html>

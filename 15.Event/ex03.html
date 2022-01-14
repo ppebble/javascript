@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 30px;
+        }
+        #btn{
+            font-size: 25px;
+        }
+        #btn{
+            margin : 20px;
+        }
+        p{
+            border : 2px solid red;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //btn에 클릭이벤트 등록
+            $("#btn").click(function(e){
+                alert("HI");
+            })
+            // $("p").on("mouseenter mouseleave", function(e){
+            //     $("div").append("mose in or Out" + "<br>");
+            
+            // })
+            // $("p").on({
+            //     click:function(){
+            //         $("div").append("mose in or Out" + "<br>");
+            //     },
+            //     mouseenter : function(){
+            //         $("div").append("mose in or Out" + "<br>");
+            //     }
+            // })
+        }) //단축 이벤트는 내부적으로는 on메소드를 사용하는 것이다.
+
+        
+    </script>
+
+</head>
+<body>
+    <button id="btn"> btn </button>   
+    <button id="btn1">remove </button> 
+    <p>Hello</p>
+    <div></div>
+</body>
+</html>

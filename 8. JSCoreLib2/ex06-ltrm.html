@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-wileedth, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        #input{
+            width: 300px
+        }
+        #output{
+            width: 600px;
+            height: 200px;
+
+            border: 2px solid red;
+            text-align: left;
+            vertical-align: top;
+        }
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function(){
+           var $output = $("#output");
+           var $input = $("#input");
+
+           $("#confirm").click(function(){
+               //input 값 알아내기
+               var value = $input.val();
+
+               //앞쪽(왼쪽) 공백 제거
+               var result = ltrim(value);
+               $output.html(result);
+           })
+       })
+
+       function ltrim(str){
+        //문자열이 없는 경우
+        if(str.length == 0){
+            return "";
+        }
+
+        var firstChar = str.charAt(0);
+        if(firstChar != " "){
+            return str;//검사할 필요가 없다
+        }
+
+        //공백이 끝나는 위치를 찾아야함
+        for(var i=1; i<str.length; i++){
+            //공백문자가 아닐때까지
+            var ch = str.charAt(i);
+            if(ch != " "){
+                break;
+            }
+            
+        }
+        var result = str.slice(i, str.length);
+        return result;
+       }
+    </script>
+</head>
+<body>
+    <div>
+        <input type="text" id="input">
+        <button id="confirm">OK</button>
+    </div>
+    <textarea id="output">Result :: </textarea>
+    
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>버블링 활용-2(라이브 이벤트)-일반적 방법</title>
+    <style>
+        body {
+            font-size: 30px;
+        }
+        #add {
+            font-size: 30px;
+        } 
+        ul {
+            border: 1px solid black;
+        }
+        ul li {
+            border: 1px solid red;
+            margin: 20px;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            
+            //위의 코드의 단점을 보완한 코드
+            var $menu = $(".menu");
+            var cnt = 5; //카운트 변수 추가
+            
+            $("#add").click(function(e){
+                cnt++; //카운트 증가
+                var $newItem = $("<li>메뉴" + cnt + "</li>"); 
+
+                //신규 메뉴가 추가될 때 마다 이벤트 리스너가 늘어난다.
+                $newItem.on("click",function(e){
+                    alert($(this).html());
+                });
+                $menu.append($newItem);
+            });        
+            $(".menu li").click(function(e){
+                alert($(this).html());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <button id="add">추가</button>
+    </div>
+    <ul class="menu">
+        <li>메뉴1</li>
+        <li>메뉴2</li>
+        <li>메뉴3</li>
+        <li>메뉴4</li>
+        <li>메뉴5</li>
+    </ul>     
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        var count=0;
+        var $container = null;
+
+       $(document).ready(function(){
+           $container = $("#container");
+            //append() :: 문자열을 붙여서 출력하는 메소드
+           $container.append("<p>" + count + "Hi");
+            count ++;
+            //버튼이 클릭도리 때 마다 익명함수를 실행하여 지속적으로 글자를 붙여서 출력하게 된다.
+            $("#btnPrint").click(function(){
+                $container.append("<p>" + count + "Hi");
+                count ++;
+            })
+       })
+    </script>
+</head>
+<body>
+    <button id="btnPrint">출력하기</button>
+    <div id="container">
+
+
+    </div>
+</body>
+</html>

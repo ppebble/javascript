@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Definition Event</title>
+    <style>
+        body{
+            font-size: 18px;
+            font-family: "맑은고딕";
+        }
+        ul, li{
+            border: 1px solid #777;
+            margin: 15px;
+        }
+        li{
+            padding: 10px;
+
+        }
+        li.select{
+            background-color: #ccc;
+
+        }
+        #output{
+            border: 2px solid #000;
+            min-height: 100px;
+        }
+        
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var $output = $("#output");
+            var $menu = $(".menu");
+            var cnt = 5;
+
+            $("#add").click(function(e){
+                cnt++;
+                //신규 항목 생성
+                var $newItem = $("<li>menu" + cnt +"</li>");
+                $menu.append($newItem);
+
+                //User Definition Event Instance create
+                var event = jQuery.Event("addItem");//Event name = addItem
+                //Event Data package
+                event.item = $newItem; //userDefinitionEvent item에게 신규아이템 저장
+                event.itemName = $newItem.text();//menu6, menu7 ...
+                event.itemLength = $menu.children().length;//자식들의 전체 길이(갯수)
+                
+                //Event Occur
+                $menu.trigger(event);
+
+            })
+            //addItem :: EventListener
+            $menu.on("addItem", function(e){
+                $output.prepend("<p>Add Item : " + e.itemName + ", Item 갯수 : " + e.itemLength + "</p>");
+            })
+            
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <button id="add">ADD</button>>
+    </div>
+    <ul class="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+        <li>menu5</li>
+    </ul>
+    <p>
+        Add / Delete Info
+    </p>
+    <div id="output">
+
+    </div>
+    
+</body>
+</html>

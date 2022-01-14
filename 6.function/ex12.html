@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        
+         function calculator(op, num1, num2, callback) {//매개변수로 callback이 들어와서 결과값을 callback함수
+            //로직 구현부분
+            var result = "";
+
+            switch(op){
+                case "+" :
+                    result = num1 + num2;
+                    break;
+                case "-" :
+                    result = num1 - num2;
+                    break;
+                case "*" :
+                    result = num1 * num2;
+                    break;
+                case "/" :
+                    result = num1 / num2;
+                    break;
+                default :
+                    result = "error! Unexpected OP";
+            }
+           callback(result);
+        }
+        //callback :: 구현부는 1개 처리부는 2개 , 다른 출력을 원한다면 처리부만 만들어주면 된다. (결합도 ↘)
+       function print1(result){
+           document.write(" Result : " + result + "<br>");
+       }
+       function print2(result){
+           document.write(" Answer : " + result + "<br>");
+       }
+
+        calculator("-",500,300,print1)
+        calculator("*",500,300, print2)
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

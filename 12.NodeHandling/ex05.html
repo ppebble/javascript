@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>delete node with jQuery children, remove ... </title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+        ul, li{
+            border: 3px solid #77d;
+            margin: 10px;
+        }
+        ul{
+            padding: 10px;
+        }
+        li.select{
+            background-color: #0ad;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // 클릭하는 노드 삭제
+            // $("#menu li").click(function(){
+            //     $(this).remove();
+            //     })
+            // })
+
+            // $("#remove").click(function(){
+            //     $("#menu").children().remove();
+            // })
+
+            $("#remove").click(function(){
+                $("#menu li:even").remove();//index를 기준으로 삭제한다 ($(a b:even(odd)))
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="remove">REMOVE</button>
+    <ul id="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li class="select">menu4</li>
+        <li>menu5</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+        ul, li{
+            border: 3px solid #77d;
+            margin: 10px;
+        }
+        ul{
+            padding: 10px;
+        }
+        li.select{
+            background-color: #0ad;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //html()method를 이용하여 li개체 클릭 시 아래의 마크업언어가 추가되어 a태그로 바뀐다.
+        //    $("#menu li").click(function(){
+        //        var $item=$(this);
+        //        $item.html("<a href='http://www.naver.com'> new menu" + (1 + $item.index()));
+        //    })
+
+        //text()를 이용하여 li객체의 텍스트 노드를 수정할 수 있다.
+        $("#menu li").click(function(){
+               var $item=$(this);
+               $item.text("new string");
+           })
+           
+        })
+    </script>
+</head>
+<body>
+    <button id="ok">OK !</button>
+    <ul id="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li class="select">menu4</li>
+        <li>menu5</li>
+    </ul>
+</body>
+</html>

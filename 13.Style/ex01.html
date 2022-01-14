@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Style</title>
+    <style>
+        div{
+            margin: 20;
+            padding: 10;
+            font-size: 26;
+            border: 2px solid red;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        // window.onload = function(){
+        //     var content  = document.getElementById("test");
+        //     console.log("color  ? " + content.style.color);
+        //     console.log("border  ? " + window.getComputedStyle(content).border);
+        // }
+        $(document).ready(function(){
+            var $content = $("#test");
+            $content.css("fontSize", "12px");
+            $content.css("font-size","36px");
+        })
+    </script>
+</head>
+<body>
+    <div id="test" class="content" style="color : #a0d";>
+    Style Handling
+    </div>
+</body>
+</html>

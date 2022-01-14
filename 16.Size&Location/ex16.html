@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윈도우의 크기 변경에 따른 이벤트 처리</title>
+    <style>
+                
+        body {
+            font-size: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #info{
+            border: 10px solid red;
+            position: fixed;
+            left: 120px;
+            top: 100px;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function(){
+        //화면에서의 윈도우(웹브라우저)의 위치를 구하기
+        var left = window.screenLeft;
+        var top = window.screenTop;
+        console.log("window locate left : " + left + "window locate top :" + top );
+
+        //윈도우가 resize이벤트 리스너를 등록
+            $(window).on("resize", function(){
+                var str= "";
+                str += "window.outerWidth : " + window.outerWidth + "<br>";
+                str += "window.outerHeight : " + window.outerHeight + "<br>";
+                $("#info").html(str);
+            })
+
+            
+        
+        });    
+        
+    </script>
+</head>
+<body>
+   
+   <div id="info">
+       Resizing . . . 
+   </div>
+</body>
+</html>

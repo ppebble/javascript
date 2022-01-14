@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> </title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+        ul, li{
+            border: 3px solid #77d;
+            margin: 10px;
+        }
+        ul{
+            padding: 10px;
+        }
+        li.select{
+            background-color: #0ad;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#add").click(function(){
+                var data = "";
+                for(var i=1; i<=10; i++){
+                    //추가할 노드 10개를 만들고 있다.
+                    data += "<li>menu" + i + "</li>"
+                }
+                //추가한 노드에 데이터 삽입
+                //html() jQuery메소드를 단 한번만 호출하고 있다.
+                $("#menu").html(data);
+
+            })
+            //모든 HTML 제거
+            $("#remove").click(function(){
+                $("#menu").html("");
+            })
+            //remove는 내부적으로 자식노드 수 만큼 메소드 호출
+            // $("#remove").click(function(){
+            //     $("#menu li").remove();
+            // })
+            
+            
+        })
+    </script>
+</head>
+<body>
+    <button id="add">ADD</button>
+    <button id="remove">REMOVE</button>
+    <ul id="menu">
+        
+    </ul>
+</body>
+</html>

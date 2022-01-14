@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Node OffsetParent()</title>
+    <style>
+        *{
+            margin : 0;
+            padding: 0;
+        }
+        body{
+            font-size: 20px;
+        }
+        #parent1{
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            left: 100px;
+            top: 100px;
+            background-color: #0ff;
+        }
+        #parent2{
+            position: ab;
+            width: 200px;
+            height: 200px;
+            left: 100px;
+            top: 100px;
+            margin: 50px;
+            background-color: #404;
+        }
+        #child{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            left: 50px;
+            top: 100px;
+            background-color: #3aa;
+
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function(){
+           var $parent = $("#child").offsetParent(); //해당 객체의 부모속성노드를 선택하는것
+           //부모 좌표 노드는 style속성 중 position속성이  absolute or relative속성을 가지고
+           //최근접에 있는 노드가 바로 부모좌표노드가 된다.
+           console.log("Parent ID :: " + $parent.attr("id"));//부모노드의 id 속성 plot
+       })
+    </script>
+</head>
+<body>
+    <div id="parent1">
+        parent1
+        <div id="parent2">
+            parent2
+            <div id="child">
+                child
+            </div>
+        </div>
+    </div>
+    
+
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>move node with jQuery insertBefore, hasClass ... </title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+        ul, li{
+            border: 3px solid #77d;
+            margin: 10px;
+        }
+        ul{
+            padding: 10px;
+        }
+        li.select{
+            background-color: #0ad;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var cnt = 5;
+            $("#btnAdd").click(function(){
+                cnt++;
+                $item = $("<li>new menu" + cnt + "</li>");
+
+                // $("#menu").append($item);
+                
+                //아래 코드는 부모의 자식노드에 마지막 노드로 추가하기
+                $item.appendTo("#menu");
+            })
+            //li클릭 시 append를 이용하여 마지막 노드로 이동시키는 코드
+
+            //li 클릭 시 익명함수 종료 아니라면 select클래스 노드의 이전으로 이동시키는 코드(insertBefore/After)
+            var $menu = $("#menu");
+            $("#menu li").click(function(){
+                if($(this).hasClass("select") == true){
+                    return;
+                }
+                $(this).insertBefore($(".select"));
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <button id="btnAdd">ADD</button>
+    <ul id="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li class="select">menu4</li>
+        <li>menu5</li>
+    </ul>
+</body>
+</html>

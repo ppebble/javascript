@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            width:700px;
+            margin:0 auto;
+            height: 955px;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #404;
+        }
+        #img1, #img2, #img3{
+            width: 150px;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            var $targetList = $(".target");
+
+            $targetList.click(function(){
+                //클릭된 이미지를 jQuery변수에 저장한다.
+                var $target = $(this);
+                var flag = !$target.data("flag");//img의 data-flag 속성값을 반대로 바꾼다.
+
+                $target.data("flag", flag);
+
+                if(flag){
+                    $target.attr("src", "resources/cat.png");
+
+                }
+                else{
+                    $target.attr("src", "resources/dog.png");
+                }
+            })
+          
+        })
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div class="panel">
+            <p>first Image</p>
+            <img id = "img1" src="resources/cat.png" class="target" data-flag="true">
+        <div class="pane2">
+            <p>second Image</p>
+            <img id = "img2" src="resources/cat.png" class="target" data-flag="true">
+        </div>
+        <div class="pane3"></div>
+            <p>third Image</p>
+            <img id = "img3" src="resources/cat.png" class="target" data-flag="true">
+        </div>
+    </div>
+    
+    
+    
+</body>
+</html>

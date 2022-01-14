@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>move node with jQuery insertbefore/after ... </title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+        ul, li{
+            border: 3px solid #77d;
+            margin: 10px;
+        }
+        ul{
+            padding: 10px;
+        }
+        li.select{
+            background-color: #0ad;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var cnt = 5;
+            $("#btnAdd").click(function(){
+                cnt++;
+                //새로운 jQuery 객체 생성
+                $item=$("<li>new menu" + cnt + "</li>");
+                //li태그에 클래스가 select인 것 이전에 $item을 추가하고 있다.
+                // $item.insertBefore("#menu li.select");
+                //li태그에 클래스가 select인 것 이후에 $item을 추가하고 있다
+                // $("#menu li.select").before($item);
+                // $("#menu li.select").after($item);
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <button id="btnAdd">ADD</button>
+    <ul id="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li class="select">menu4</li>
+        <li>menu5</li>
+    </ul>
+</body>
+</html>

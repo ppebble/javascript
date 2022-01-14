@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윈도우의 위치 설정하기 move to/by</title>
+    <style>
+                
+        body {
+            font-size: 15px;
+            margin: 0;
+            padding: 0;
+        }
+
+        #info{
+            border: 10px solid red;
+            position: fixed;
+            left: 120px;
+            top: 100px;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function(){
+        //화면에서의 윈도우(웹브라우저)의 위치를 구하기
+        var newWindow = null;
+
+        $("#create").click(function(){
+            newWindow = window.open("", "newWindow", "width=200, height = 200");//open을 이용하여 window 생성
+        })
+        $("#move").click(function(){
+            if(newWindow){
+                // newWindow.moveTo(500, 100); //화면을 기준으로 하여 이동한다
+                newWindow.moveBy(50, 50);//현재 윈도우의 위치를 기반으로 이동한다.
+            }
+        })
+    });    
+        
+    </script>
+</head>
+<body>
+   <button id="create">create</button>
+   <button id="move"> move </button>
+   <div id="info">
+       move info print
+   </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while</title>
+</head>
+<body>
+
+
+    <script>
+        var sum = 0;
+        var d = confirm("작업을 진행할까요 ? ");
+        var i = 1;
+        //dowhile은 조건식이 뒤에 있으므로 최소 한번은.
+        do{
+            if(d==true){
+            sum += i;
+            document.write(sum + ", " + i + "<br>");
+            i++;
+            }
+        
+        }while(i<=100)
+        document.write("1~"+ (i-1)+"까지의 합" + sum);
+    </script>
+    
+</body>
+</html>

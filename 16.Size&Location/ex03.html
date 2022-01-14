@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지역 좌표 노드 구하기 position()</title>
+    <style>
+        *{
+            margin : 0;
+            padding: 0;
+        }
+        body{
+            font-size: 20px;
+        }
+        #info{
+            border: 3px solid #040;
+            height: 30px;
+            margin: 50px 0 0 100px;
+            width: 500px;
+        }
+        #parent1{
+            position: absolute;
+            border: 3px solid #404;
+            width: 500px;
+            height: 400px;
+            left: 100px;
+            top: 100px;
+        }
+        .earth{
+            position: absolute;
+            width: 80px;
+        }
+        .earth p{
+            position: absolute;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+
+        }
+        #earth1 {
+            left:50px;
+            top: 100px;
+        }
+        #earth2 {
+            left:150px;
+            top: 300px;
+        }
+        #earth3 {
+            left:180px;
+            top: 50px;
+        }
+        #earth4 {
+            left:350px;
+            top: 200px;
+        }
+       </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+       $(document).ready(function(){
+            var $info = $("#info");
+            $(".earth").click(function(e){
+                //click한 fish
+                $selectedEarth = $(this);
+                //get(location)
+                var pos = $selectedEarth.position();
+                var str = "id = " + $selectedEarth.attr("id") + ", left = " + pos.left 
+                        + ", top = " + pos.top + ", parent id = " + $selectedEarth.offsetParent().attr("id");
+                $info.html(str);
+            })
+       })
+    </script>
+</head>
+<body>
+    <div id="info">
+        Location value ::
+    </div>
+    <div id="parent1">
+        <div id="earth1" class="earth">
+            <p>1</p>
+            <img src="resources/earth.png">
+        </div>
+        <div id="earth2" class="earth">
+            <p>2</p>
+            <img src="resources/earth.png">
+        </div>
+        <div id="earth3" class="earth">
+            <p>3</p>
+            <img src="resources/earth.png">
+        </div>
+        <div id="earth4" class="earth">
+            <p>4</p>
+            <img src="resources/earth.png">
+        </div>
+    </div>
+    
+
+    
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "굴림";
+        }
+        div, p, ul, li{
+            border : 1px solid gray;
+        }
+        ul{
+            padding-top: 10px;
+            padding: 15px;
+            margin : 15px;
+        }
+        li.select{
+            margin: 10;
+            background-color: #ccc;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // $("ul.menu li").each(function(index){
+            //     document.write(this + "<br>");
+            //     //this는 현재 jQuery의 객체를 의미한다. 여기선 HTMLLiElement object. . .
+            // })
+
+            var $liList = $("ul.menu li");
+            $liList.each(function(index){
+                var borderPixel = (index +1) * 2;
+                //$liList.eq(index).css("border", borderPixel + "px solid #f0f");
+                //$(this)는 루프를 돌면서 li객체를 하나씩 가져오고 있다.
+                $(this).css("border", borderPixel + "px solid #f00");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div id="samplePage" class="page">
+        Sample(div, id=samplePage calss=page)
+    </div>
+    <div id="header">
+         header(div, id = header)
+    </div>
+    <div id="content" class="sample-content">
+        node search id="content" class="sample-content"
+        <ul class="menu">
+            일반 노드 찾기 (ul, class=menu)
+            <li data-value="1">id로 찾기 li, datavalue=1</li>
+            <li class="select">tag로 찾기 li, class=select</li>
+            <li data-value="2">class로 찾기 li, datavalue=2</li>
+            <li clasas="test1">id로 찾기 li, class=test1</li>
+
+        </ul>
+        <div class="content-data">
+            자식노드찾기(div, class=content-data)
+            <p class="test1">1. 모든 자식 노드 찾기 p, class=test1</p>
+            <p>\2. 특정 자식 노드 찾기 p</p>
+            <p class="test2">1. 마지막 자식 노드 찾기 p, class=test2</p>
+            
+
+        </div>
+        <div id="footer">
+            푸터 영역(div id=footer)
+
+        </div>
+    </div>
+    
+    
+</body>
+</html>

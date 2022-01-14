@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지역변수 & 전역변수</title>
+</head>
+<body>
+    <script>
+        var name = "global"; //전역변수 선언 & 초기화
+        function func1(){
+            var name = "local1";
+            document.write(name + "<br/>");
+        }
+        function func2(){
+            var name = "local2";
+            document.write(name + "<br/>");
+        }
+        function func3(){
+            name = "local3";
+            document.write(name + "<br/>");
+        }
+        document.write(name + "<br/>");
+        func1();
+        func2();
+        func3(); //전역변수 global이 local3로 덮어써짐
+        document.write(name+"<br/>");
+
+    </script>
+    
+</body>
+</html>

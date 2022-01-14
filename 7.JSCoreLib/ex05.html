@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+       #panel {
+            width: 600px;
+            height: 300px;
+            border: 2px solid #999;
+            position: relative;
+        }
+        #bar {
+            position: absolute;
+            left: 50px;
+            top: 190px;
+            width: 500px;
+            height: 20px;
+            background: #f00;
+        }
+        #fish {
+            position: absolute;
+            left: 50px;
+            top: -71px;
+        }
+        #nav {
+            text-align: center;
+            width: 600px;
+            margin-top: 20px;            
+        }
+        #btnStart, #btnStop {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        var $fish = null;
+        var step = 50;// 이동 할 거리
+        var timerID=0;
+
+        $(document).ready(function(){
+            init();
+            initEvent();
+
+        })
+        function init(){
+            $fish = $("#fish");//Fish Node Load
+
+        }
+        function initEvent(){
+            $("#btnStart").click(function(){
+                start();
+            })
+            $("#btnStop").click(function(){
+                stop();
+            })
+
+        }
+        function start(){
+            if(timerID==0){
+                timerID=setInterval(function(){
+                move();
+            }, 50)
+            }
+            
+
+        }
+        function stop(){
+            clearInterval(timerID)
+            timerID=0;
+
+        }
+        function move(){
+            //물체의 다음 위치
+            var x= $fish.position().left + step;
+
+            if(x >= 430){
+                //.attr() :: 선택자에 의해 선택된 요소들 중 요소의 속성 값을 가지고 오는 함수이다.
+                $fish.attr("src", "resources/fish2.png");
+                step = -50;
+            }
+            
+            if(x < 50){
+                $fish.attr("src", "resources/fish1.png");
+                step= 50;
+            }
+            $fish.css("left", x);
+            
+
+        }
+    </script>
+</head>
+<body>
+    <div id="panel">
+        <div id="bar">
+            <img src="resources/fish1.png" id="fish">
+        </div>
+        <div id="nav">
+            <button id="btnStart">Start</button>
+            <button id="btnStop">STOP</button>
+        </div>
+
+    </div>
+
+    
+</body>
+</html>

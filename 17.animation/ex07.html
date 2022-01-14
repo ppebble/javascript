@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Definition Animation-2</title>
+    <style>
+        *{
+            font-size: 25px;
+        }
+        #target{
+            border: 1px solid black;
+            width: 400px;
+            height: 300px;
+            text-align: center;
+            position: relative;
+        }
+        #kor{
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script src="libs/jquery.easing.min.js"></script><!-- easing lib-->
+    <script>
+        $(document).ready(function(){
+            var $img1 = $("#target"); //움직일 대상 찾아오기
+            
+            $("#show").on("click", function(){
+                $img1.animate({
+                    opacity : 1,
+                    left : 0,
+                    top : 0
+                    }
+                ,6000, "easeOutQuint", function(){
+                    alert("Animation Open . . .")
+                })
+                
+            })
+
+            $("#hide").on("click", function(){
+                $img1.animate({
+                    opacity : 0,
+                    left : 800,
+                    top : 500
+                    }
+                ,6000, "easeOutQuint", function(){
+                    alert("Animation Quit . . .")
+                })
+                
+            })
+            $("#stop").on("click", function(){
+                $img1.stop();//animation을 중단하는 메소드
+            })
+                
+        })
+            
+    </script>
+</head>
+<body>
+    <div>
+        <button id="show">show</button>
+        <button id="hide">hide</button> 
+        <button id="stop">stop</button>
+    </div>
+    <div id="target">
+        <img src="resources/korea.png" id="kor">
+    </div>
+    
+</body>
+</html>

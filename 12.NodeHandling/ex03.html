@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>move node with jQuery append, appendTo ... </title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "맑은 고딕";
+        }
+        ul, li{
+            border: 3px solid #77d;
+            margin: 10px;
+        }
+        ul{
+            padding: 10px;
+        }
+        li.select{
+            background-color: #0ad;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var cnt = 5;
+            $("#btnAdd").click(function(){
+                cnt++;
+                $item = $("<li>new menu" + cnt + "</li>");
+
+                // $("#menu").append($item);
+                
+                //아래 코드는 부모의 자식노드에 마지막 노드로 추가하기
+                $item.appendTo("#menu");
+            })
+            //li클릭 시 append를 이용하여 마지막 노드로 이동시키는 코드
+
+            //append :: 제일 밑으로  prepend :: 제일 위로 before :: 이전 노드로 after :: 이후 노드로 
+            var $menu = $("#menu");
+            $("#menu li").click(function(){
+                $menu.append(this);
+            })
+            
+        })
+    </script>
+</head>
+<body>
+    <button id="btnAdd">ADD</button>
+    <ul id="menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li class="select">menu4</li>
+        <li>menu5</li>
+    </ul>
+</body>
+</html>

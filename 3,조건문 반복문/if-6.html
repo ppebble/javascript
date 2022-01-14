@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if- 6</title>
+</head>
+<body>
+    <script>
+        var score = window.prompt("Enter your score :: ");
+
+        score = parseInt(score);
+
+        if(score >= 90 && score<= 100){
+            document.write( " GRADE :: A ");
+        }
+        else if(score >= 80 && score<= 89){
+            document.write( " GRADE :: B ");
+        }
+        else if(score >= 70 && score<= 79){
+            document.write( " GRADE :: C ");
+        }
+        else if(score >= 60 && score<= 69){
+            document.write( " GRADE :: D ");
+        }
+        else if(score<= 59){
+            document.write( " GRADE :: F");
+        }
+        else{
+            document.write("error!")
+        }
+    </script>
+    
+</body>
+</html>

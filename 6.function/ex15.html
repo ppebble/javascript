@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script >
+        $(document).ready(function(){
+            checkCount(showAlert);//함수 호출
+        })
+        function showAlert(){
+            alert("5 Click Completed . . . ");
+        }
+        //callback()을 이용한 풀이
+        function checkCount(callback){
+            var count=0;
+            $("#btnStart").click(function(){
+                count ++;
+                if(count >= 5){
+                    callback();
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <button id="btnStart"> START </button>
+</body>
+</html>

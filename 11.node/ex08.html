@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filter&find</title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "굴림";
+        }
+        div, p, ul, li{
+            border : 1px solid gray;
+        }
+        ul{
+            padding-top: 10px;
+            padding: 15px;
+            margin : 15px;
+        }
+        li.select{
+            margin: 10;
+            background-color: #ccc;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+           var $liList = $("ul.menu li");
+           //$liList 배열값 중에서 class선택자 값이 select인 것만 찾아오는 코드
+           //$liList.filter(".select").css("background", "yellow");
+           var $content = $("#content");
+           //div의 하위 노드인 클래스선택자 값이 test1인 값을 찾아온다. 
+           $content.find(".test1").css("background", "#0f0");
+           //find :: 자손의 특정 요소를 찾는데 사용 filter :: 특정노드를 찾는데 자식요소에서만 찾을 때 사용
+           //find() 전체(혹은 기준 값 하위)에서만 검색하지만 filter()는 자기자신의 레벨에서 검색을 실행한다.
+        })
+    </script>
+</head>
+<body>
+    <div id="samplePage" class="page">
+        Sample(div, id=samplePage calss=page)
+    </div>
+    <div id="header">
+         header(div, id = header)
+    </div>
+    <div id="content" class="sample-content">
+        node search id="content" class="sample-content"
+        <ul class="menu">
+            일반 노드 찾기 (ul, class=menu)
+            <li data-value="1">id로 찾기 li, datavalue=1</li>
+            <li class="select">tag로 찾기 li, class=select</li>
+            <li data-value="2">class로 찾기 li, datavalue=2</li>
+            <li clasas="test1">id로 찾기 li, class=test1</li>
+
+        </ul>
+        <div class="content-data">
+            자식노드찾기(div, class=content-data)
+            <p class="test1">1. 모든 자식 노드 찾기 p, class=test1</p>
+            <p>\2. 특정 자식 노드 찾기 p</p>
+            <p class="test2">1. 마지막 자식 노드 찾기 p, class=test2</p>
+            
+
+        </div>
+        <div id="footer">
+            푸터 영역(div id=footer)
+
+        </div>
+    </div>
+    
+    
+</body>
+</html>

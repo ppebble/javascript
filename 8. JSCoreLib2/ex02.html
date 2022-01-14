@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String</title>
+    <style>
+        #print{
+            width: 500px;
+            height: 300px;
+            text-align: center;
+            line-height: 150px;
+            vertical-align: middle;
+            border: 2px solid #f00;
+        }
+    </style>
+</head>
+<script src="libs/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        //문자열 입력 받기
+        var str = window.prompt("Enter Strings . . . ");
+        var $print = $("#print");
+
+        var index = str.indexOf("yes");
+        if(index >= 0){
+            alert("해당되는 문자의 위치는 " + index + "입니다.");//해당 문자열의 첫번째 위치 return
+        }
+        else{
+            alert("Error!")
+        } 
+        // var timerID=setInterval(function(){
+        //     var ch = str.charAt(index);//해당 인덱스의 문자가 ch변수에 저장된다.
+        //     //문자 출력
+        //     $print.text(ch);
+        //     //다음 문자 출력을 위해 index 증가
+        //     index++;
+
+        //     //모든 문자를 전부 출력한 뒤 기능 정지
+        //     if(index >= str.length){
+        //         clearInterval(timerID);
+        //         index = 0;
+        //         alert("Stop String printing . . . ");
+        //     }
+        // },1000)
+
+    })
+    
+</script>
+<body>
+    <div id="print">
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Definition Animation-2</title>
+    <style>
+        *{
+            font-size: 25px;
+        }
+        #panel{
+            border: 1px solid black;
+            width: 600px;
+            height: 400px;
+            margin-top: 15px;
+            position: relative;
+        }
+        #fish{
+            left: 50px;
+            top:120px;
+            position: absolute;
+        }
+        #info{
+            width: 600px;
+            height: 40px;
+            border: 1px solid #404;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script src="libs/jquery.easing.min.js"></script><!-- easing lib-->
+    <script>
+        $(document).ready(function(){
+            var $fish = $("#fish");
+            var $info = $("#info");
+
+            $("#panel").click(function(e){
+                //클릭한 위치 값 구하기
+                var offsetX = e.pageX - $(this).offset().left;
+                var offsetY = e.pageY - $(this).offset().top;
+                //클릭한 위치값 문자열 
+                var str = "X : " + offsetX + ", Y : " + offsetY;
+
+                $info.html(str);
+
+                // $fish.css({//클릭한 위치로 물고기 이동 . . . css . . . no animate
+                //     left : offsetX,
+                //     top : offsetY
+                // })
+                $fish.animate({
+                    left : offsetX,
+                    top : offsetY
+                },5000, "easeOutElastic")
+            })
+            
+        })
+            
+    </script>
+</head>
+<body>
+    <div id="info">
+        Click한 위치 값
+    </div>
+    <div id="panel">
+        <img src="resources/fish.png" id="fish">
+    </div>
+    
+</body>
+</html>

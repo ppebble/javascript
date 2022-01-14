@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Event</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(function(){
+            $(".btn1").click(function(){
+                $("#p1").css({
+                    "color" : "#f00",
+                    "font-weight" : "bold"
+                })
+            })
+            //커서가 btn2에 올라갔을때와 포커스가 갔을 때 css를 실행
+            $(".btn2").on({
+                "mouseover focus" : function(){
+                    $("#p2").css({
+                        "color" : "#e99",
+                        "font-weight" : "900"
+                    })
+                },
+                //커서가 btn2에서 나가거나 포커스를 강제로 잃어버렸을 때 . . .  글자를 원래대로
+                "mouseout blur" : function(){
+                    $("#p2").css({
+                        "color" : "#000",
+                        "font-weight" : "normal"
+                    })
+                }
+            })
+            //이벤트 제거
+            $(".btn1").off("click");
+        })
+
+        
+    </script>
+</head>
+<body>
+    <p id="p1">Glad to meet you</p>
+    <button class ="btn1">Button 1</button>
+    <p id="p2">hello</p>
+    <button class ="btn2">Button 2</button>
+    
+</body>
+</html>

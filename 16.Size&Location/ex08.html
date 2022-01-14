@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>크기다루기 이동</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }        
+        body {
+            font-size: 15px;
+        }
+        #move {
+            position: absolute;
+            left: 50px;
+            height: 30px;
+            border: 1px solid black;   
+        }        
+        #parent1 {
+            position: absolute;
+            border: 1px solid black;            
+            width: 500px;
+            height: 400px;
+            left: 50px;
+            top: 50px;            
+        }       
+        #fish {
+            position: absolute;
+            padding: 30px;
+            margin: 50px;
+            left: 50px;
+            top: 100px;
+            width: 120px;
+            height: 70px;
+            border: 20px solid #00f;
+        }        
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var $fish = $("#fish");
+            //move click event
+            $("#move").click(function(e){
+                //end place
+                //물고기가 이동 할 X좌표
+                var endX =  $("#parent1").innerWidth()-$fish.outerWidth()-parseInt($fish.css("margin-right"));//parent의 padding까지 가야한다.
+                //fish 위치 설정   fish의 이동 방향을 확인한 후 그 방향의 마진까지 빼줘야 원하는 대로 이동한다.
+                $fish.css("left", endX);
+            })
+        })
+    </script>
+</head>
+<body>
+    <button id="move">move</button>
+    <div id="parent1">       
+        <img src="resources/fish.png" id="fish">
+    </div>    
+</body>
+</html>

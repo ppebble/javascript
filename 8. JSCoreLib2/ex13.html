@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArrayClass</title>
+    <style>
+        #menu{
+            list-style: none;
+            border : 2px solid #f00;
+            height: 50px;
+            padding: 20px;
+        }
+        #menu li{
+            display: block;
+            float: left;
+            padding: 10px;
+            border: 2px solid #f42;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //리터럴 형태로 스트링배열 생성
+        var clients = ["clients1","clients2","clients3","clients4","clients5"];
+        document.write("clients Array Size . . . " + clients.length+"<br>");
+
+        //요소접근
+        for(var i=0; i<clients.length; i++){
+            document.write("clients Array Size . . . "+ "[" + i + "]" + "<br>");
+        }
+
+        var str = clients.join("? <br>");
+        document.write(str); // join :: seperator로 String 형 출력
+        document.write("================================================================");
+
+
+        // ----------------------------split---------------------------------
+        $(document).ready(function(){
+            var $menu = $("menu");
+            var menuDate = "Menu2, Menu3, Menu4, Menu5";;
+            var menuItems = menuDate.split(","); //split() :: String을 seperator로 나눠서 Array로 return 한다.
+            for(var i =0;i<menuItems.length;i++){
+                var newItem = "<li>" + menuItems[i] + "</li>";
+                //동적으로 메뉴 아이템 할당
+                $menu.append(newItem);
+            }
+        })
+
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li>Menu1</li>
+
+    </ul>
+    
+</body>
+</html>

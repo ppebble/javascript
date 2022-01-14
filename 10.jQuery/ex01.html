@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-size: 15px;
+            font-family: "굴림";
+        }
+        div, p, ul, li{
+            border : 1px solid gray;
+        }
+        ul{
+            padding: 10px;
+        }
+        li.select{
+            background-color: #ccc;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <!-- 자바스크립트로 아이디가 header인 노드를 찾아서 border style 변경하기 -->
+    <script>
+        // window.onload = function(){
+        //     var header = document.getElementById("header");
+        //     header.style.border = "5px solid #f00";
+        //}
+        $(document).ready(function(){
+            $("#header").css("border", "5px solid #777");
+        }) //jQuery가 더 간결하다
+    </script>
+</head>
+<body>
+    <div id="samplePage" class="page">
+        Sample(div, id=samplePage calss=page)
+    </div>
+    <div id="header">
+         header(div, id = header)
+    </div>
+    <div id="content" class="sample-content">
+        node search id="content" class="sample-content"
+        <ul class="menu">
+            일반 노드 찾기 (ul, class=menu)
+            <li data-value="1">id로 찾기 li, datavalue=1</li>
+            <li class="select">tag로 찾기 li, class=select</li>
+            <li data-value="2">class로 찾기 li, datavalue=2</li>
+            <li clasas="test1">id로 찾기 li, class=test1</li>
+
+        </ul>
+        <div class="content-data">
+            자식노드찾기(div, class=content-data)
+            <p class="test1">1. 모든 자식 노드 찾기 p, class=test1</p>
+            <p>\2. 특정 자식 노드 찾기 p</p>
+            <p class="test2">1. 마지막 자식 노드 찾기 p, class=test2</p>
+            
+
+        </div>
+        <div id="footer">
+            푸터 영역(div id=footer)
+
+        </div>
+    </div>
+    
+    
+</body>
+</html>

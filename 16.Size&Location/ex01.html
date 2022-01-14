@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position</title>
+    <style>
+        body{
+            font-size: 20px;
+        }
+        .panel{
+            width: 600px;
+            height: 300px;
+            border: 2px solid #404;
+        }
+        .bar{
+            position: absolute;
+            left: 50px;
+            top:190px;
+            width: 500px;
+            height: 20px;
+            background-color: black;
+        }
+        #earth{
+            position: absolute;
+            left: 50px;
+            width: 68px;
+            top:120px;
+
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var $earth = $("#earth");
+            var curX = $earth.position().left;
+            var curY = $earth.position().top;
+            $("#move").click(function(){
+                //earth location
+                curX = $earth.position().left +10;
+                curY = $earth.position().top - 5;
+                $earth.css("left", curX);
+                $earth.css("top", curY)
+                
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="panel">
+        <div class="bar"></div>
+        <img src="resources/earth.png" id="earth">
+    </div>
+    <div>
+        <button id="move">Move Location</button>
+    </div>
+    
+
+    
+</body>
+</html>

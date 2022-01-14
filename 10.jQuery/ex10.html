@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //jQuery객체를 4개나 생성하는 꼴, get singletone
+            // $("#menu").append("<li>menu2</li>");
+            // $("#menu").append("<li>menu3</li>");
+            // $("#menu").append("<li>menu4</li>");
+            // $("#menu").append("<li>menu5</li>");
+
+            var $menu =$("#menu");
+            //1개의 인스턴스 생성 후 리턴값으로 변수에 대입하고있다.
+            $menu.append("<li>menu5</li>");
+            $menu.append("<li>menu5</li>");
+            $menu.append("<li>menu5</li>");
+            $menu.append("<li>menu5</li>");
+
+           
+            
+        })
+    
+    </script>
+</head>
+<body>
+    <ul id="menu">
+        <li>menu</li>
+    </ul>
+
+</body>
+</html>

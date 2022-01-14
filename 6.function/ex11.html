@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //일반함수를 사용하개 되면 로직구현, 로직처리부분까지 아래와 같이 코드의 중복이 있고 기능이 합쳐져있기 떄문에 유지보수도 어렵다.(결합도)
+         function calculator1(op, num1, num2) {
+            //로직 구현부분
+            var result = "";
+
+            switch(op){
+                case "+" :
+                    result = num1 + num2;
+                    break;
+                case "-" :
+                    result = num1 - num2;
+                    break;
+                case "*" :
+                    result = num1 * num2;
+                    break;
+                case "/" :
+                    result = num1 / num2;
+                    break;
+                default :
+                    result = "error! Unexpected OP";
+            }
+            document.write("result : " + result + "<br/>");
+        }
+        //일반 함수
+        function calculator2(op, num1, num2) {
+            //로직 처리부분
+            var result = "";
+
+            switch(op){
+                case "+" :
+                    result = num1 + num2;
+                    break;
+                case "-" :
+                    result = num1 - num2;
+                    break;
+                case "*" :
+                    result = num1 * num2;
+                    break;
+                case "/" :
+                    result = num1 / num2;
+                    break;
+                default :
+                    result = "error! Unexpected OP";
+            }
+            document.write("Answer : " + result + "<br/>");
+        }
+        calculator1("-",500,300);
+        calculator2("*",500,300);
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        div{
+            width: 50px;
+            height: 50px;
+            float: left;
+            background-color: rgb(172, 108, 108);
+            margin : 10px;
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //div객체들을 divList에 배열로 저장
+            var $divList = $("div");
+            //eq(index)
+            var $div_two = $divList.eq(1);
+            var $div_one = $divList.get(0);
+            $div_two.css("border", "3px solid red");
+            $div_one.style.border = ("border", "3px solid blue");
+            //eq() :: return값이 jQuery 객체, get() :: return값이 DOM의 Element객체가 리턴된다. = JavaScript정공법으로 써야됨
+
+            var $div_five = $divList[4];
+            //[]로 node 다루기
+            $div_five.style.border=("border", "3px solid #ffa");
+        })
+    </script>
+</head>
+<body>
+    <div>div1</div>
+    <div>div2</div>
+    <div>div3</div>
+    <div>div4</div>
+    <div>div5</div>
+    <div>div6</div>
+    <div>div7</div>
+    <div>div8</div>
+    <span></span>
+    
+</body>
+</html>

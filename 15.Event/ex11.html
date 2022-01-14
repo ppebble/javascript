@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Trigger</title>
+    <style>
+        .test{
+            width: 100px;
+            height: 30px;
+            margin: 0 auto;
+            background-color: black;
+            text-align: center;
+            color: #fff;
+        }
+        #addTest{
+            width: 100px;
+            margin: 0 auto;
+            margin-top: 20px;
+            font-size: 20px;
+            text-align: center;
+            display: block;
+
+        }
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            var cnt = 0;
+            $("#testspan").click(function(e){
+                cnt ++;
+                $("#testspan").text(cnt);
+            });
+            //btn addtest에 클릭이벤트 리스너의 내용이 testspan의 click이벤트를 강제로 발생시키도록 하고있다.
+            $("#addTest").click(function(e){
+                $("#testspan").trigger("click");
+                
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="test">
+        Num :: <span id="testspan"><b>0</b></span>
+    </div>
+    <button id="addTest">Increase</button>
+</body>
+</html>

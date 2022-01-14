@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <style>
+        .container{
+            width: 600px;
+            height: 500px;
+            position: relative;
+            border: 3px solid red;
+        }
+        .container #gigu{
+            width: 50px;
+            margin-left: 250px;
+            margin-top: 150px;
+        }
+        #score{
+            font-size : 20px;
+            font-weight: bold;
+        }
+        #text{
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            //score 저장
+            var cnt = 0;
+            //점수 출력 부분
+            var $score = $("#score");
+            //Flag 변수
+            var play =true;
+
+            $("#gigu").click(function(){
+                if(play == true){
+                    cnt++;
+                    $score.html(cnt);
+                }
+            })
+            setTimeout(function(){
+                play= false;
+                alert("Game Set . . . ");
+            }, 3000)
+        })
+    </script>
+</head>
+<body>
+    <div id="text">
+        Score :: <span id="score"> 0 </span>
+    </div>
+    <div class="container">
+        <img src="resources/gigu.png" id="gigu">
+    </div>
+</body>
+</html>
