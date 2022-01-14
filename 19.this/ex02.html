@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIS</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        var data = 10;//전역변수
+        //함수 생성
+        $(document).ready(function(){
+
+        function outer(){
+            function inner(){
+                this.data =20;//window 객체의 this
+                data = 30;
+
+                console.log("data1 " + data+"<br>");
+                console.log("data2 this " + this.data+"<br>");
+                console.log("data3 window " + window.data+"<br>");
+            }
+            inner();
+        }
+        outer();
+        /*
+            result ::
+            outer() :: 30 , 20, 20
+            
+            inner :: 30, 30, 30
+
+            함수부분에서 this는 window의 객체 소속이 된다.
+        */
+        })
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

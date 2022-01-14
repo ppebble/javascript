@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIS</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //class 생성
+        function MyClass(){
+                this.property1 = "value1";
+            }
+            //메소드 정의
+            MyClass.prototype.method1 = function(){
+                alert(this.property1);
+            }
+            //인스턴스 생성 
+
+            //this가 객체단의 this 가 된다.
+            var my = new MyClass();
+            my.method1();
+
+        $(document).ready(function(){
+            
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

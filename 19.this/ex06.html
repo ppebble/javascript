@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instance</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+      var userName = "a";
+
+      function User(name){
+          this.userName = name;
+      }
+      //인스턴스를 생성 :: b는 user.userName에 저장되어 있음.
+      //new 연산자가 들어가면 무조건 인스턴스를 만들고 메모리에 인스턴스를 할당받는다.(전역변수와는 완전다른 케이스)
+      var user = new User("b");
+      console.log(userName); 
+      console.log(user.userName)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

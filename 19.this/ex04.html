@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIS</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //class 생성
+        function MyClass(){
+                this.data = 20;
+            }
+            //메소드 정의
+            MyClass.prototype.method1 = function(){
+                function inner(){
+                    this.data = 20;
+                    data =30;
+
+                    console.log("data :: " + data);
+                    console.log("this.data ::" + this.data);
+                    console.log("window.data :: " + window.data)
+                }
+                inner();
+                /**
+                 * 아무리 클래스 단이라도 중첩 함수에서 this는 window객체 소속이 된다.(거의 안씀)
+                */
+            }
+
+            var my = new MyClass();
+            my.method1();
+
+        $(document).ready(function(){
+            
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
