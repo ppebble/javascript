@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIS</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+      var userName = "a";
+
+      function User(name){
+          this.userName = name;
+      }
+
+      User("b");
+      console.log(userName); //함수호출 :: this.userName에서 b가 덮어씌워진다. = 함수를 호출하는 형태
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

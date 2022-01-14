@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THIS</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        var data = 10;//전역변수
+        //함수 생성
+        $(document).ready(function(){
+            $("#myButton").click(function(){
+                this.data =20;
+                data = 30;
+                console.log("data :: " + data);
+                console.log("this.data ::" + this.data);
+                console.log("window.data :: " + window.data)
+            })
+            /*
+                result :: 30  20  30
+                this.data = EventListener에서 this는 이벤트가 발생하는 객체를 가리킨다.
+            */
+        })
+        
+    </script>
+</head>
+<body>
+    <button id="myButton">Execute</button>
+</body>
+</html>
