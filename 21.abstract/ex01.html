@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstraction</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            function Person(name, gender, hobby){
+                this.name = name;
+                this.gender = gender;
+                this.hobby = hobby; //사람에게 공통된 Property
+            }
+            //공통 메소드 정의
+            Person.prototype.say = function(){
+                document.write("사람은 말을 합니다.")
+            }
+            Person.prototype.eat = function(){
+                alert("ㅇㅇ");
+            }   
+            Person.prototype.see = function(){
+                document.write("ㅌㅂㄹ");
+            }
+
+            var person = new Person("A", "M", "C");
+            person.eat();
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

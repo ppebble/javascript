@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>절차지향 프로그래밍</title>
+    <title>Encapsulation</title>
     <style>
         .tab-menu {
             list-style: none;
@@ -47,45 +47,49 @@
     </style>
     <script src="libs/jquery-3.6.0.min.js"></script>
     <script>
-        //절차지향적 프로그램 예제(Line By Line, 함수 기반 . . . 매개 변수들이 전역변수들임)
-        //절차지향프로그램은 함수의 연속이다.
-        var $tab1MenuItems = null;
-        var $tab2MenuItems = null;
-        
         $(document).ready(function(){
-            $tab1MenuItems = $("#tabMenu1 li");
-            $tab2MenuItems = $("#tabMenu2 li");
-            //함수의 매개변수로 전역데이터를 넘겨준다.
-            tabMenu($tab1MenuItems);
-            tabMenu($tab2MenuItems);
+            //첫 번째 탭 메뉴 인스턴스 생성
+            var tab1 = new TabMenu("#tabMenu1");
+            tab1.setSelectItemAt(1);
 
-            //tab메뉴 초기화 이벤트 리스너 등록
-            $("#btnReset").click(function(){
-                resetTableMenu($tab1MenuItems);
-                resetTableMenu($tab2MenuItems);
-            })
-
+            
         })
-        //tabMenu region
-        function tabMenu($menuItems){
-            $menuItems.click(function(){
-                selectMenuItemAt($menuItems, $(this).index());
-            })
+
+        function TabMenu(selector){
+            this._$tabMenu = null; //암묵적 property 선언
+            this._$menuItems = null;
+            this._$selectMenuItem = null;
+            //요소 초기화 메소드
+            this._init(selector);
+            this._initEvent();
         }
-        //n번째 탭 메뉴 선택
-        function selectMenuItemAt($menuItems, index){
-            //이벤트 리스너 등록
-            $menuItems.removeClass("select");
-            $menuItems.eq(index).addClass("select");
-        }
-        //함수를 추가
-        function resetTableMenu($menuItems){
-            $menuItems.removeClass("select");
-        }
+        TabMenu.prototype._init = function(selector){
+                this._$tabMenu = $(selector);
+                this._$menuItems = this._$tabMenu.find("li");
+            }
+            TabMenu.prototype._initEvent = function(){
+                var objThis = this;
+                this._$menuItems.on("click", function(){
+                    objThis.setSelectItem($(this));
+                })
+            }
+            TabMenu.prototype.setSelectItem = function($menuItem) {
+                //기존 선택된 아이템 비활서오하
+                if(this._$selectMenuItem){
+                    this._$selectMenuItem.removeClass("select");
+                }
+                this._$selectMenuItem = $menuItem;
+                this._$selectMenuItem.addClass("select");
+            }
+            TabMenu.prototype.setSelectItemAt = function(index){
+                var $menuItem = this._$menuItems.eq(index);
+
+                //기존 메소드 재사용
+                this.setSelectItem($menuItem);
+            }
     </script>
 </head>
-<body> 
-    <button id="btnReset">Reset</button>
+<body>
     <p>첫 번째 탭메뉴</p>  
     <ul class="tab-menu" id="tabMenu1">
         <li class="menuitem1">google</li>
@@ -104,6 +108,5 @@
         <li class="menuitem5">aribnb</li>
         <li class="menuitem6">path</li>
     </ul>
-    
 </body>
 </html>
