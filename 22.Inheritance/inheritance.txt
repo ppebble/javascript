@@ -16,3 +16,24 @@
 
     1) 코드 재사용 :: 자식클래스는 부모클래스의 멤버를 별도의 코드 없이 사용할 수 있다.
     2) 중복 코드 제거 :: 같은 내용이 작성된 부분을 제거할 수 있다.
+    3) 확장 :: 상속을 이용하면 코드를 아주 쉽게 확장할 수 있다.
+        ㄴ자식클래스는 부모클래스보다 무조건 보완되거나 기능이 추가된다.
+        ◈부모클래스를 수정할 필요 없이 기능을 확장할 수 있다
+    
+
+    일반OOP의 클래스 상속 // class A extends B{ super() }
+
+    자바스크립트에서 클래스 상속
+
+    function MyParent(){
+        ...
+    }
+    MyParent.prototype.method = function(){ ... }
+
+    function MyChild(){
+        ...
+    }
+    MyChild.prototype = new MyParent();
+    var myChild = new MyChild();
+    myChild.method();
+    
