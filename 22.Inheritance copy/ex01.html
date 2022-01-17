@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //부모
+        function MyParent(){
+            this.property1 = "lee";
+        }
+        //method
+        MyParent.prototype.method1 = function(){
+            alert(this.property1);
+        }
+        //자식
+        function MyChild(){
+            //프로퍼티 정의 X
+            
+        }
+        //Inheritance In JavaScript
+        MyChild.prototype = new MyParent();
+
+        var child = new MyChild();
+        child.method1();
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
