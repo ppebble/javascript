@@ -1,0 +1,40 @@
+JavaScript OverLoading
+
+Method Overloading ?? 동일한 이름을 가진 여러 개의 메소드를 만든 후 매개변수와 타입과 갯수에 따라 맞는 메소드가 
+자동으로 호출되는 기능.
+    function sum(n1, n2){ -- A
+        return n1 + n2;
+    }
+    function sum(n1, n2, n3){ -- B
+        reutrn n1 + n2 +n3;
+    }
+    function sum(n1, n2, n3, n4){ -- C
+        return n1 + n2+ n3+ n4;
+    }
+
+    sum(10, 20); -- A
+    sum(1, 2, 3); -- B
+    sum(1,20,3,40); -- C
+
+    매개변수 조건에 맞는 메소드를 자동으로 호출해준다.
+
+    오버로딩으로 만들어진 메소드는 이름은 같지만 새로운 메소드
+
+    JavaScript의 OverLoading ? 문법적으로 지원 X
+     
+    arguments를 이용해 오버로딩 흉내 가능 :: EX
+        
+        function method() {
+            arguments 객체 활용
+        }d
+
+        function sum(){
+            var result = 0;
+            for(var i=0; i<arguments.length;i++){
+                result += arguments[i];
+            }
+            return result;
+        }
+        console.log(sum(10,20));
+        console.log(sum(1,2,3));
+        console.log(sum(1,2,3,4));

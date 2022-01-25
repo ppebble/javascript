@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OverLoading</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+		function MyParent(){
+			this.property = "lee";
+		}
+		MyParent.prototype.method = function(){
+			console.log(this.property + "<br>");
+		}
+
+		function MyChild(){
+
+		}
+		MyChild.prototype = new MyParent(); //상속코드
+		MyChild.prototype.constructor = MyChild; //자식클래스의 constructor에 MyChild를 명시해준다.
+												//자식의constructor에 자식 자신의 정보(MyChild)를 담는다.
+
+		var parent = new MyParent();
+		var child = new MyChild();
+
+		if(parent.constructor == MyParent){
+			console.log("parent == MyParent");
+		}
+		if(child.constructor == MyChild){
+			console.log("child == MyChild");
+		}
+	</script>
+<body>
+    
+</body>
+</html>

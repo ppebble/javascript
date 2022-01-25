@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Override</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+		function MyParent(){
+			this.property = "lee";
+			console.log("MyParent Constructor called . . .");
+		}
+		MyParent.prototype.method= function(){
+			console.log("ParentClass property ::" + this.property)
+		}
+
+		function MyChild(){
+			console.log("MyChild Constructor Called . . . ");
+		}
+		MyChild.prototype = new MyParent();
+
+		//일반적으로 클래스를 만들면 자동으로 prototype의 constructor라는 property가 묵시적으로 만들어진다.
+		//new라는 연산자로 인스턴스화 되는 시점에 호출되는 것이다.
+		//해당클래스의 생성자 정보가 기본값으로 담기게 된다.
+		// ==instanceOf() , 어떤 클래스의 인스턴스 인지 알 수 있다.
+		//상속관계의 경우 자식클래스의 constructor프로퍼티는 기본적으로 부모클래스의 생성자 정보를 담고있다.
+		MyChild.prototype.constructor = MyChild(); //1
+
+		//Method override :: 선언부는 동일해야한다 !! modify, change
+		MyChild.prototype.method = function(){
+			console.log("MyChild Property :: "+ this.property);
+		}
+		
+		var child = new MyChild();
+		child.method();
+
+
+	</script>
+<body>
+    
+</body>
+</html>

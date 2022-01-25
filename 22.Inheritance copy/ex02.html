@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Overriding</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+       function MyParent(){
+           this.property = "lee";
+           console.log("MyParent Call");
+       }
+
+       MyParent.prototype.method = function(){
+           console.log("property" + this.property +"<br>");
+       }
+
+       function MyChild(){
+           console.log("MyChild call");
+       }
+       MyChild.prototype = new MyParent();
+       MyChild.prototype.constructor = MyChild;//constructor :: 일반적으로 클래스를 만들면 constructor라는
+       //프로퍼티가 묵시적으로 만들어진다.(new연산자로 인스턴스화 되는 시점)
+       //해당 클래스의 생성자 정보가 기본값으로 담기게 된다.
+       //constructor라는 속성으로 어떤클래스의 인스턴스인지를 알아낼 수 있다.
+       //상속관계의 경우 자식클래스의 constructor프로퍼티는 기본적으로 부모클래스의 생성자가 담기게 된다.
+
+       //Method Override
+       //오버라이드는 선언부는 자식과 부모 클래스의 선언부가 반드시 일치해야한다.
+       MyChild.prototype.method= function(){
+           console.log(this.property);
+       }
+       //자식 클래스의 인스턴스 생성
+       var child = new MyChild();
+       //call method
+       child.method();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

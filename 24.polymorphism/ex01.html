@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //자바스크립트에서는 문법적으론 제공하지 않는다
+        function Runnable(){
+            //추상매소드와 같이 흉내내고 있는메소드
+            this.run = function(){
+                throw new Error("run()Method 미구현 에러");//throw :: 강제로 에러를 발생시키는 코드 java의 예외처리
+            }
+        }
+        //구현클래스
+        function RunnableImpl(){
+            //@overridng
+            this.run = function(){
+                console.log("RUN");
+            }
+        }
+        //인터페이스 클래스 역시 일종의 부모클래스다. 서로 연관없는 구현클래스 간의 간접적인 관계 형성
+        RunnableImpl.prototype = new Runnable();//상속코드
+        $(document).ready(function(){
+            //인스턴스 생성
+            var human = new RunnableImpl();
+            //부모클래스에 같은 이름의 메소드가 있어도 부모클래스를 상속받은 구현클래스의 재정의된 메소드가 호출
+            human.run();
+
+            //다형성 체크
+            //instanceof :: 좌측에는 참조변수가 오고 우측에는 클래스 타입이 온다.
+            //instanceof 연산자를 써서 조건문에 결과가 true가 나오면 우측에 있는 타입의 인스턴스이거나
+            //우축의 타입의 부모클래스 타입으로 형변환 가능하다.
+            if(human instanceof RunnableImpl){
+                console.log("human == RunnableImpl");
+            }
+            if(human instanceof Runnable){
+                console.log("human == Runnable");
+            }
+            //Object(human)
+            if(human instanceof Object){
+                console.log("human == Object");
+            }
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

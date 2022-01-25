@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Override</title>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+		function Calculator(){
+			console.log("Cal.const called .. . ")
+		}
+		Calculator.prototype.areaCircle = function(r){
+			console.log("Cal.areaCircle called .. . ")
+			console.log("Cal.areaCircle val :: " + (3.141592 * (r*r)));
+		}
+		
+		function Computer(){
+			console.log("Com.const called .. . ")
+		}
+		Computer.prototype = new Calculator();
+		Computer.prototype.constructor = Computer;
+
+		Computer.prototype.areaCircle =function(r){
+			console.log("Cal.areaCircle called .. . ")
+			console.log("Cal.areaCircle val :: " + (Math.PI * (r*r)));
+		}
+
+		var computer = new Computer();
+		computer.areaCircle(15);
+	</script>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        //parent
+        function CellPhone(){
+            //property
+            this._model = null;
+            this._color = null;
+        }
+        //Inheritance
+
+        DmbCellPhone.prototype = new CellPhone();
+
+
+        CellPhone.prototype.On = function(){
+            document.write("Turn On <br>");
+        }
+        CellPhone.prototype.Off = function(){
+            document.write("Turn Off<br>");
+        }
+        CellPhone.prototype.bell = function(){
+            document.write("Ring your bell <br>");
+        }
+        CellPhone.prototype.hangUp = function(){
+            document.write("Cut <Br>");
+        }
+        CellPhone.prototype.sendVoice = function(message){
+            document.write( message + "<br>");
+        }
+        CellPhone.prototype.receiveVoice = function(message){
+            document.write("received : " + message + "<br>")
+        }
+        function DmbCellPhone(){
+            this.channel = null;
+        }
+        DmbCellPhone.prototype.chgChannel = function(channel){
+            document.write("cur channel : " + channel + "<br>");
+        }
+        DmbCellPhone.prototype.off = function(){
+            document.write("Dmb Off<br>");
+        }
+        var dmbCellPhone = new DmbCellPhone();
+        dmbCellPhone.On();
+        dmbCellPhone.bell();
+        dmbCellPhone.receiveVoice("hi");
+        dmbCellPhone.sendVoice("hello");
+        dmbCellPhone.hangUp();
+        dmbCellPhone.chgChannel("17");
+        dmbCellPhone.off();
+        dmbCellPhone.Off();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

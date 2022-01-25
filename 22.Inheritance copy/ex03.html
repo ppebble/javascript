@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>title</title>
+    <style>
+
+    </style>
+    <script src="libs/jquery-3.6.0.min.js"></script>
+    <script>
+        function Calculator(){
+            console.log("Calculator  Called .. . ");
+        }
+        Calculator.prototype.areaCircle = function(radius){
+            console.log("areaCircle Called .. . ");
+            console.log("Val = " + 3.141592 * radius*radius );
+        }
+        function Computer(){
+            console.log("Computer Called .. . ");
+        }
+        Computer.prototype = new Calculator();
+        Computer.prototype.constructor = Computer;
+
+        Computer.prototype = new Computer;
+
+        Computer.prototype.areaCircle = function(radius){
+            Calculator.prototype.areaCircle.call(this, 100);
+            console.log("Compute areaCircle Called . . .");
+            console.log("computer :: " + (Math.PI * radius+radius));
+        }
+
+        $(document).ready(function(){
+            var computer = new Computer();
+            computer.areaCircle(12);
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
